@@ -5,7 +5,7 @@ while True:
     width, height = os.get_terminal_size() # get terminal width and height
     text = "UwU"
     text2 = "OwO"
-    termwidth = round(width / 2) - len(text) - 1
+    termwidth = round(width / 2 - len(text) / 2) - 1
     termheight = round(height / 2) - 2
     result_str = ''.join(("\n" for i in range(termheight)))
     result_str2 = ''.join((" " for i in range(termwidth)))
