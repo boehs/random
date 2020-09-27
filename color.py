@@ -27,12 +27,12 @@ while invalid == True:
         elif int(bg) == 1:
             bg = True
             invalid = False
+
 o.system('cls' if o.name == 'nt' else 'clear')
+
 while True:
-    ClrScl = r.randrange(0, len(colors))
-    BGScl = r.randrange(0, len(backgrounds))
     if bg == True:
-        print(colors[ClrScl] + backgrounds[BGScl] + "Colors!", end="\r")
+        print(r.choice(colors) + r.choice(backgrounds) + "Colors!", end="\r")
     elif bg == False:
-        print(colors[ClrScl] + "Colors!", end="\r")
+        print(r.choice(colors) + "Colors!", end="\r")
     t.sleep(0.1)
