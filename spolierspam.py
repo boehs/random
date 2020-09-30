@@ -17,11 +17,11 @@ while True:
                 print("that aint it cheif")
     sentence = input("Enter your text: ")
     spoiledSentence = ""
-    if stack == False:
+    if not stack:
         for letter in sentence:
             spoiledSentence = spoiledSentence + "||" + letter + "||"
             print(spoiledSentence)
-    elif stack == True:
+    elif stack:
         for letter in sentence:
             spoiledSentence = spoiledSentence + "||" + letter + "||"
         print(spoiledSentence)

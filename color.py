@@ -1,15 +1,18 @@
-colors = ["\033[39m", "\033[30m", "\033[31m", "\033[32m", "\033[33m", "\033[34m", "\033[35m", "\033[36m", "\033[37m", "\033[90m", "\033[91m", "\033[92m", "\033[93m", "\033[94m", "\033[95m", "\033[96m", "\033[97m"]
-backgrounds = ["\033[49m", "\033[40m", "\033[41m", "\033[42m", "\033[43m", "\033[44m", "\033[45m", "\033[46m", "\033[47m", "\033[100m", "\033[101m", "\033[102m", "\033[103m", "\033[104m", "\033[105m", "\033[106m", "\033[107m"]
+import os as o
+import random as r
+import time as t
+
+colors = ["\033[39m", "\033[30m", "\033[31m", "\033[32m", "\033[33m", "\033[34m", "\033[35m", "\033[36m", "\033[37m",
+          "\033[90m", "\033[91m", "\033[92m", "\033[93m", "\033[94m", "\033[95m", "\033[96m", "\033[97m"]
+backgrounds = ["\033[49m", "\033[40m", "\033[41m", "\033[42m", "\033[43m", "\033[44m", "\033[45m", "\033[46m",
+               "\033[47m", "\033[100m", "\033[101m", "\033[102m", "\033[103m", "\033[104m", "\033[105m", "\033[106m",
+               "\033[107m"]
 
 # https://stackoverflow.com/questions/4842424/list-of-ansi-color-escape-sequences
 # https://godoc.org/github.com/whitedevops/colors
 
-import random as r
-import time as t
-import os as o
-
 invalid = True
-while invalid == True:
+while invalid:
     bg = input("ya want to go blind?: ")
     try:
         int(bg)
@@ -31,8 +34,8 @@ while invalid == True:
 o.system('cls' if o.name == 'nt' else 'clear')
 
 while True:
-    if bg == True:
+    if bg:
         print(r.choice(colors) + r.choice(backgrounds) + "Colors!", end="\r")
-    elif bg == False:
+    elif not bg:
         print(r.choice(colors) + "Colors!", end="\r")
     t.sleep(0.1)

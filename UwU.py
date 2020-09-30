@@ -1,8 +1,9 @@
 import os
 import time
+
 while True:
-    os.system('cls' if os.name == 'nt' else 'clear') # clear the terminal
-    width, height = os.get_terminal_size() # get terminal width and height
+    os.system('cls' if os.name == 'nt' else 'clear')  # clear the terminal
+    width, height = os.get_terminal_size()  # get terminal width and height
     text = "UwU"
     text2 = "OwO"
     termwidth = round(width / 2 - len(text) / 2) - 1

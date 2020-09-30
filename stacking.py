@@ -1,15 +1,16 @@
+import random
 import string
 import time
-import random
+
 while True:
     # region: config
     numCorrect = False
-    while numCorrect == False:
+    while not numCorrect:
         t = input("Max Stack Length?: ")
         try:
             int(t)
-        except:
-            #is not int
+        except ValueError:
+            # is not int
             print("Hmm, thats not right!")
         else:
             # is a int
@@ -17,7 +18,7 @@ while True:
             numCorrect = True
 
     numCorrect = False
-    while numCorrect == False:
+    while not numCorrect:
         sleep = input("How Long Between Lines? (Leave blank for default): ")
         if sleep == "" or sleep == " ":
             sleep = 0.03
@@ -26,8 +27,8 @@ while True:
         else:
             try:
                 int(sleep)
-            except:
-                #is not int
+            except ValueError:
+                # is not int
                 print("Hmm, thats not right!")
             else:
                 # is a int
@@ -35,7 +36,7 @@ while True:
                 numCorrect = True
 
     numCorrect = False
-    while numCorrect == False:
+    while not numCorrect:
         letter = input("What letter do you want? (Leave blank for random): ")
         if letter == "" or letter == " ":
             print("Set as random")
@@ -46,7 +47,7 @@ while True:
             RanLetter = False
 
     numCorrect = False
-    while numCorrect == False:
+    while not numCorrect:
         rpt = input("Should it repeat?")
         if rpt == "True" or rpt == "yes" or rpt == "Yes" or rpt == "YES" or rpt == "true":
             print("repeating")
@@ -61,8 +62,8 @@ while True:
     # endregion
     # region: generator
     shouldRpt = True
-    while shouldRpt == True:
-        if RanLetter == True:
+    while shouldRpt:
+        if RanLetter:
             letters_and_digits = string.ascii_uppercase + string.digits
             letter = random.choice(letters_and_digits)
         inc = t
@@ -79,7 +80,7 @@ while True:
             numchar2 = numchar2 - 1
             print(result_str)
             time.sleep(sleep)
-        if rpt == False:
+        if not rpt:
             print("done. loop repeating.")
             shouldRpt = False
 

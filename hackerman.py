@@ -1,15 +1,15 @@
+import os
+import random
 import string
 import time
-import random
-import os
+
 sleep = 0.2
 t = 150
-
 
 # endregion
 # region: generator
 shouldRpt = True
-while shouldRpt == True:
+while shouldRpt:
     width, height = os.get_terminal_size()
     width = width - 1
     letters_and_digits = string.ascii_uppercase + string.digits + " " + "{" + "}" + "[" + "]" + "<" + "." + "," + ">"

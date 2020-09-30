@@ -1,6 +1,6 @@
-import time
-import random
 import os
+import random
+import time
 
 os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -20,12 +20,14 @@ while True:
     if len(colors) < 3:
         print("ha suckers! " + impostor + " was the imposter and they win")
         break
-    responses = ["hi", "hi", "hi", random.choice(colors) + " is sus", "how do I use the vents like " + random.choice(colors), "I was doing " + random.choice(tasks), "****", "ok I am going to trail " + random.choice(colors), "**** *** *****"]
+    responses = ["hi", "hi", "hi", random.choice(colors) + " is sus",
+                 "how do I use the vents like " + random.choice(colors), "I was doing " + random.choice(tasks), "****",
+                 "ok I am going to trail " + random.choice(colors), "**** *** *****"]
     if gamerun > 10:
         responses.remove("hi")
         responses.remove("hi")
     print(random.choice(colors) + " > " + random.choice(responses))
-    if random.randint(1,10) == 3:
+    if random.randint(1, 10) == 3:
         meetingtype = ["emergency meeting!", "body reported."]
         print(random.choice(meetingtype))
         time.sleep(3)
