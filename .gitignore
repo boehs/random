@@ -1,3 +1,6 @@
 testing.py
 lyrics.txt
 lyricblink.py/lyrics.txt
+.replit
+poetry.lock
+pyproject.toml
