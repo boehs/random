@@ -9,4 +9,4 @@ for letter in text:
         final_text += letter
 
 print("owoified text:" + "\n" + final_text + "\n")
-end = input("Press enter to exit" + "\n")
+input("Press enter to exit" + "\n")
