@@ -1,17 +1,20 @@
 import os
-import time
 
-while True:
+def create(text):
     os.system('cls' if os.name == 'nt' else 'clear')  # clear the terminal
     width, height = os.get_terminal_size()  # get terminal width and height
-    text = "UwU"
-    text2 = "OwO"
     termwidth = round(width / 2 - len(text) / 2) - 1
     termheight = round(height / 2) - 2
-    result_str = ''.join(("\n" for i in range(termheight)))
-    result_str2 = ''.join((" " for i in range(termwidth)))
-    print(result_str)
-    print(result_str2 + text, end="\r")
-    time.sleep(1)
-    print(result_str2 + text2, end="\r")
-    time.sleep(1)
+    height = ''.join(("\n" for i in range(termheight)))
+    width = ''.join((" " for i in range(termwidth)))
+    print(height)
+    print(width + text, end="\r")
+
+if __name__ == "__main__":
+    import time
+    os.system('cls' if os.name == 'nt' else 'clear')
+    while True:
+        create("UwU")
+        time.sleep(1)
+        create("OwO")
+        time.sleep(1)

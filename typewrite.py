@@ -1,13 +1,11 @@
-import os
 import time
-
-os.system('cls' if os.name == 'nt' else 'clear')
-
 
 def typewrite(text):
     for char in text:
         print(char, flush=True, end="")
         time.sleep(0.1)
 
-
-typewrite(input("What to Write: "))
+if __name__ == "__main__":
+    import os
+    os.system('cls' if os.name == 'nt' else 'clear')
+    typewrite(input("What to Write: "))
