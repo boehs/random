@@ -15,3 +15,7 @@ $ rust-script filename.rs
 ```
 
 Provided you are `cd`ed there ofc
+
+---
+
+`snippet.rs` is a boilerplate I use for VScode
