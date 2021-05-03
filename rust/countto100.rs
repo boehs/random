@@ -1,7 +1,7 @@
 #!/usr/bin/env rust-script
 //! ```cargo
 //! [package]
-//! name = "helloworld"
+//! name = "countto100"
 //! authors = ["Evan Boehs"]
 //! version = "0.1.0"
 //! license = "Commons Clause Apache-2.0"
@@ -15,5 +15,9 @@
 #![forbid(unsafe_code)]
 
 fn main() {
-    println!("hello world")
+    for n in 0..101 {
+        println!("{}",n)
+    }
 }
+
+// vim: set ft=rust sw=4 sts=4 expandtab :

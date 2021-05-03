@@ -14,6 +14,7 @@ if crash == 2:
         import numpy as np
     except ModuleNotFoundError:
         import os
+        os.system("pip install numpy")
     list = []
     while True:
         list.append(9999999999999*99999999999999999)
