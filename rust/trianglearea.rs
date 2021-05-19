@@ -15,24 +15,33 @@
 #![forbid(unsafe_code)]
 use std::io::stdin;
 
-fn main() {
-    println!("Enter the length of the first line");
-    let mut l1 = String::new();
-    stdin().read_line(&mut l1).ok().expect("Failed to read line");
-    println!("Enter the length of the second line");
-    let mut l2 = String::new();
-    stdin().read_line(&mut l2).ok().expect("Failed to read line");
-    println!("Enter the length of the third line");
-    let mut l3 = String::new();
-    stdin().read_line(&mut l3).ok().expect("Failed to read line");
-    let l1: f64 = l1.trim().parse().unwrap();
-    let l2: f64 = l2.trim().parse().unwrap();
-    let l3: f64 = l3.trim().parse().unwrap();
+struct Triangle {
+  lineone: f64,
+  linetwo: f64,
+  linethree: f64,
+}
 
-    //idk somehow my math is wrong
-    let s = (l1+l2+l3) / 2.0;
-    let result = (s * (s-l1) * (s-l2) * (s-l3)).sqrt();
-    println!("The result is {}",result)
+impl Triangle {
+  fn area(&self) -> f64 {
+    let s = (self.lineone+self.linetwo+self.linethree) / 2.0;
+    (s * (s-self.lineone) * (s-self.linetwo) * (s-self.linethree)).sqrt()
+  }
+}
+
+fn main() {
+  fn gentri() -> f64 {
+    let mut tri = String::new();
+    stdin().read_line(&mut tri).ok().expect("Failed to read line");
+    tri.trim().parse().unwrap()
+  }
+  println!("Enter the length of the first line");
+  let l1 = gentri();
+  println!("Enter the length of the second line");
+  let l2 = gentri();
+  println!("Enter the length of the third line");
+  let l3 = gentri();
+  println!("The result is {}",Triangle {lineone: l1, linetwo: l2, linethree: l3}.area());
+  
 }
 
 // vim: set ft=rust sw=4 sts=4 expandtab :

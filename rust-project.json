@@ -1,0 +1,10 @@
+{
+    "sysroot_src": "C:/Users/ebrob/.rustup/toolchains/nightly-x86_64-pc-windows-msvc/lib/rustlib/src/rust/library",
+    "crates": [
+        {
+            "root_module": "rust/main.rs",
+            "edition": "2018",
+            "deps": []
+        }
+    ]
+}
