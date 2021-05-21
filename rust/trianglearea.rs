@@ -34,13 +34,21 @@ fn main() {
     stdin().read_line(&mut tri).ok().expect("Failed to read line");
     tri.trim().parse().unwrap()
   }
-  println!("Enter the length of the first line");
-  let l1 = gentri();
-  println!("Enter the length of the second line");
-  let l2 = gentri();
-  println!("Enter the length of the third line");
-  let l3 = gentri();
-  println!("The result is {}",Triangle {lineone: l1, linetwo: l2, linethree: l3}.area());
+  let tri = Triangle {
+    lineone: {
+      println!("Enter the length of the first line");
+      gentri()
+    },
+    linetwo: {
+      println!("Enter the length of the second line");
+      gentri()
+    },
+    linethree: {
+      println!("Enter the length of the third line");
+      gentri()
+    }
+  };
+  println!("The result is {}",tri.area());
   
 }
 
