@@ -13,11 +13,6 @@
 //! ```
 // Copyright 2021, Evan Boehs
 
-/*!
-    A very simple application that show your name in a message box.
-    See `basic` for the version without the derive macro
-*/
-
 #![windows_subsystem = "windows"]
 
 extern crate native_windows_gui as nwg;

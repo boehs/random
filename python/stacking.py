@@ -49,11 +49,11 @@ while True:
     numCorrect = False
     while not numCorrect:
         rpt = input("Should it repeat?")
-        if rpt == "True" or rpt == "yes" or rpt == "Yes" or rpt == "YES" or rpt == "true":
+        if rpt.lower() == "true" or rpt.lower() == "yes":
             print("repeating")
             rpt = True
             numCorrect = True
-        elif rpt == "False" or rpt == "no" or rpt == "No" or rpt == "NO" or rpt == "false":
+        elif rpt.lower() == "false" or rpt.lower() == "no":
             print("not repeating")
             rpt = False
             numCorrect = True

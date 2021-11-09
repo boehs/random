@@ -7,7 +7,7 @@ os.system('cls' if os.name == 'nt' else 'clear')
 players = 10
 gamerun = 0
 colors = ["red", "pink", "green", "yellow", "blue", "black", "purple", "brown", "cyan", "lime"]
-tasks = ["navigation", "electical", "admin", "weapons"]
+tasks = ["navigation", "electical", "admin", "weapons","trash","reactor"]
 impostor = random.choice(colors)
 
 print("There is one impostor among us")
