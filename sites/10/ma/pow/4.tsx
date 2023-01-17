@@ -23,7 +23,7 @@ function Counter() {
         idx >= i() ? row : row.slice(0, i() + 1).concat(Array(i()).fill(false))
       )
       .reverse();
-    if(grid[i() + 1] && grid[i() + 1][i() + 1]) grid[i() + 1][i() + 1] = true;
+    if(grid[i() + 1] && grid[i() + 1][i() + 1] != undefined) grid[i() + 1][i() + 1] = true;
     return grid;
   };
 
@@ -42,9 +42,7 @@ function Counter() {
                   style={{
                     "background-color": `${circle ? "red" : "white"}`,
                     height: `${((document.body.clientHeight - 60) / (1 + i() * 2))-4}px`,
-                    width: `${document.body.clientWidth / (1 + i() * 2)}px`,
-                    margin: "1px",
-                    border: "1px solid black",
+                    width: `${document.body.clientWidth / (1 + i() * 2)}px`
                   }}
                 >
                   {circle}
