@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box
+}
+
+html {
+    width: 100%;
+}
+
+body {
+    font-size: 18px;
+    font-family: sans-serif;
+    width: 100%;
+    margin: 0;
+}
+
+body > div {
+    width: 700px;
+    margin-left: 15%;
+}
+
+input, button {
+    border: 1px solid gray;
+    padding: 5px;
+    font-size: 18px;
+    border-radius: 5px;
+    margin: 0 3px
+}
