@@ -9,8 +9,8 @@ export default function Grid(props: {
         height: '700px',
         display: 'flex',
         "flex-direction": "column",
-        gap: `${5 - (i() / 10)}px`,
-        border: '2px solid gray',
+        gap: `${5 - Math.round(i() / 10)}px`,
+        border: '2px solid var(--sec)',
         "border-radius": "5px",
         padding: '5px'
     }}>
@@ -19,8 +19,8 @@ export default function Grid(props: {
                 <div
                     style={{
                         display: "flex",
-                        flex: "1",
-                        gap: `${5 - (i() / 10)}px`,
+                        "flex-grow": '1',
+                        gap: `${5 - Math.round(i() / 10)}px`,
                     }}
                 >
                     <For each={row}>
@@ -28,9 +28,9 @@ export default function Grid(props: {
                             <div
                                 style={{
                                     "background-color": `${item ? "LightGray" : "white"}`,
-                                    "border-radius": `${5 - (i() / 10)}px`,
+                                    "border-radius": `${5 - Math.round(i() / 10)}px`,
                                     height: `100%`,
-                                    flex: '1'
+                                    "flex-grow": '1',
                                 }}
                             >
                                 {item}

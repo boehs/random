@@ -1,4 +1,5 @@
 import { createSignal } from "solid-js";
+import { useLocation } from "solid-start";
 import Grid from "~/components/Grid";
 
 export default function Counter() {
@@ -29,30 +30,30 @@ export default function Counter() {
 
   return (
     <>
+      <h1>Pow #4</h1>
       <Grid grid={grid()} />
-      <hr />
-      <div
-        style={{
-          display: "flex",
-          "justify-content": "space-between",
-        }}
-      >
-        <div>
-          <button onClick={() => setI(() => i() + 1)}>+</button>
-          <button onClick={() => setI(() => i() - 1)}>-</button>
-          <input
-            type="number"
-            value={i()}
-            onInput={(e) => setI(e.target.value ? Number(e.target.value) : 0)}
-          />
-        </div>
-        <div>
+      <div class="toolbar">
+        <button onClick={() => setI(() => i() + 1)}>+</button>
+        <button onClick={() => setI(() => i() - 1)} disabled={i() == 0}>-</button>
+        <input
+          type="number"
+          value={i()}
+          onInput={(e) => setI(e.target.value ? Number(e.target.value) : 0)}
+          min={0}
+        />
+        <div class="chip">
           {
             grid()
               .flat(1)
               .filter((circle) => circle).length
           }
         </div>
+      </div>
+      <div>
+        <input type="range" min={0} max={50}
+          value={i()}
+          onInput={(e) => setI(e.target.value ? Number(e.target.value) : 0)}
+        />
       </div>
     </>
   );

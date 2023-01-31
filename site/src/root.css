@@ -1,5 +1,11 @@
+:root {
+    --pri: #40B58A;
+    --sec: #529A82;
+}
+
 * {
-    box-sizing: border-box
+    box-sizing: border-box;
+    transition: all 0.3s ;
 }
 
 html {
@@ -18,10 +24,102 @@ body > div {
     margin-left: 15%;
 }
 
-input, button {
-    border: 1px solid gray;
+body > div > *:not(nav) {
+    margin-block: 1em;
+}
+
+input, button, .chip {
+    border: 0;
     padding: 5px;
     font-size: 18px;
     border-radius: 5px;
-    margin: 0 3px
+    margin: 0 3px;
+    border: 2px solid var(--sec);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:active {
+    transition: rotate scale 0.1s;
+    transform: rotate(10deg) scale(1.05);
+}
+
+input:active {
+    transition: scale 0.1s;
+    transform: scale(1.05);
+}
+
+input:disabled, button:disabled {
+    background-color: lightgray;
+    color: black
+}
+
+button {
+    background: var(--pri);
+    min-width: 35px;
+}
+
+input[type='range'] {
+    width: 100%;
+    padding: 0;
+}
+
+hr {
+    height: 2px;
+    border: none;
+    background: var(--sec);
+    margin: 0 10px;
+}
+
+.toolbar {
+    display: flex;
+}
+
+.toolbar > * {
+    flex: 1
+}
+
+.toolbar .chip {
+    background: repeating-linear-gradient(
+        45deg,
+        #d6e3de,
+        #d6e3de 10px,
+        #FFF 10px,
+        #FFF 20px
+    );
+}
+
+.chip {
+    cursor: default;
+}
+
+h1 {
+    margin-block-end: 0 !important;
+}
+
+.breadcrumb {
+    padding: 0 .5rem;
+}
+
+#breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+    
+#breadcrumb li:not(:first-child)::before {
+    display: inline-block;
+    margin: 0 .25rem;
+    content: "/";
+    color: gray;
+}
+    
+nav {
+    border: 2px solid var(--sec);
+    padding: 10px;
+    border-radius: 0px 0px 5px 5px;
+    border-top: none;
 }

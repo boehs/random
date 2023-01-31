@@ -1,5 +1,5 @@
 // @refresh reload
-import { Suspense } from "solid-js";
+import { For, Suspense } from "solid-js";
 import {
   A,
   Body,
@@ -11,6 +11,7 @@ import {
   Routes,
   Scripts,
   Title,
+  useLocation,
 } from "solid-start";
 import "./root.css";
 
@@ -26,8 +27,14 @@ export default function Root() {
         <div>
           <Suspense>
             <ErrorBoundary>
-              <A href="/">Index</A>
-              <A href="/about">About</A>
+              <nav>
+                <ul id="breadcrumb">
+                  <li><A href="/">home</A></li>
+                  <For each={(() => useLocation().pathname.split('/').slice(1))()}>
+                    {(path, i) => <li><A href={useLocation().pathname.split('/').slice(useLocation().pathname.split('/').length - i() - 1).join('/')}>{path}</A></li>}
+                  </For>
+                </ul>
+              </nav>
               <Routes>
                 <FileRoutes />
               </Routes>
