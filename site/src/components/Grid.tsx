@@ -6,7 +6,7 @@ export default function Grid(props: {
     const i = () => (props.grid.length-1) / 2
     return <div style={{
         "width": '100%',
-        height: '700px',
+        "aspect-ratio": '1 / 1',
         display: 'flex',
         "flex-direction": "column",
         gap: `${5 - Math.round(i() / 10)}px`,
