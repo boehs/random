@@ -3,15 +3,13 @@ import { Title } from "solid-start";
 export default function Home() {
   return (
     <main>
-      <Title>Hello World</Title>
-      <h1>Hello world!</h1>
+      <Title>Ahoy!</Title>
+      <h1>Hello, wherever you are!</h1>
       <p>
-        Visit{" "}
-        <a href="https://start.solidjs.com" target="_blank">
-          start.solidjs.com
-        </a>{" "}
-        to learn how to build SolidStart apps.
+        I use this as a playground to test various ideas.
       </p>
+      <img src="https://media.tenor.com/hAlpXvNEQM0AAAAd/bull-dog-dog.gif"/>
+      <blockquote>Wherever you go, go with all your heart</blockquote>
     </main>
   );
 }

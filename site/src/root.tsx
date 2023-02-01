@@ -7,6 +7,7 @@ import {
   FileRoutes,
   Head,
   Html,
+  Link,
   Meta,
   Routes,
   Scripts,
@@ -22,6 +23,9 @@ export default function Root() {
         <Title>SolidStart - Bare</Title>
         <Meta charset="utf-8" />
         <Meta name="viewport" content="width=device-width, initial-scale=1" />
+        <Link rel="preconnect" href="https://fonts.googleapis.com" />
+        <Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <Link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet" />
       </Head>
       <Body>
         <div>
@@ -31,13 +35,18 @@ export default function Root() {
                 <ul id="breadcrumb">
                   <li><A href="/">home</A></li>
                   <For each={(() => useLocation().pathname.split('/').slice(1))()}>
-                    {(path, i) => <li><A href={useLocation().pathname.split('/').slice(useLocation().pathname.split('/').length - i() - 1).join('/')}>{path}</A></li>}
+                    {(path, i) => <li><A href={useLocation().pathname.split('/').slice(0, i() + 2).join('/')}>{path}</A></li>}
                   </For>
                 </ul>
               </nav>
-              <Routes>
-                <FileRoutes />
-              </Routes>
+              <article>
+                <Routes>
+                  <FileRoutes />
+                </Routes>
+              </article>
+              <footer>
+                <p>By <a href="https://boehs.org">Evan Boehs</a>, <i>All Rights Reserved</i></p>
+              </footer>
             </ErrorBoundary>
           </Suspense>
           <Scripts />
