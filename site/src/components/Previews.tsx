@@ -42,7 +42,7 @@ export default function Previews(props: {
                     </div>
                     <span class={`button ${preview.url ? '' : 'disabled'}`}>
                         <Show when={preview.url} fallback={preview.title}>
-                            <A href={preview.url}>{preview.title || preview.url}</A>
+                            <A href={preview.url!}>{preview.title || preview.url}</A>
                         </Show>
                     </span>
                 </div>
