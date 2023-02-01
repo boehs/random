@@ -1,11 +1,10 @@
-import { createSignal } from "solid-js";
-import { useLocation } from "solid-start";
+import { createMemo, createSignal } from "solid-js";
 import Grid from "~/components/Grid";
 
 export default function Counter() {
   const [i, setI] = createSignal(1);
 
-  const grid = () => {
+  const grid = createMemo(() => {
     let grid = Array(1 + i() * 2)
       .fill(Array(1 + i() * 2).fill(true))
       .map((row, idx) =>
@@ -26,7 +25,7 @@ export default function Counter() {
       .reverse();
     if (grid[i() + 1] && grid[i() + 1][i() + 1] != undefined) grid[i() + 1][i() + 1] = true;
     return grid;
-  };
+  })
 
   return (
     <>
