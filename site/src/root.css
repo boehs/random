@@ -44,6 +44,11 @@ input, button, .chip {
     justify-content: center;
 }
 
+input {
+    width: 100%;
+    flex: 1.5
+}
+
 button:active {
     transition: rotate scale 0.1s;
     transform: rotate(10deg) scale(1.05);
@@ -52,6 +57,11 @@ button:active {
 input:active {
     transition: scale 0.1s;
     transform: scale(1.05);
+}
+
+input:focus {
+    outline: none;
+    border-color: #D9B365;
 }
 
 input:disabled, button:disabled {
