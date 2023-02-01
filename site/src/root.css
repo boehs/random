@@ -58,6 +58,7 @@ input:disabled, button:disabled {
 button {
     background: var(--pri);
     min-width: 35px;
+    cursor: pointer;
 }
 
 input[type='range'] {
