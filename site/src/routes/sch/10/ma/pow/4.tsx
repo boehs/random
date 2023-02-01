@@ -1,8 +1,10 @@
-import { createMemo, createSignal } from "solid-js";
+import { Accessor, createMemo, createSignal, Setter, Show } from "solid-js";
 import Grid from "~/components/Grid";
 
-export default function Counter() {
-  const [i, setI] = createSignal(1);
+export default function Counter(props: {
+  i: [Accessor<number>, Setter<Number>]
+}) {
+  const [i, setI] = props.i || createSignal(1);
 
   const grid = createMemo(() => {
     let grid = Array(1 + i() * 2)
@@ -29,31 +31,35 @@ export default function Counter() {
 
   return (
     <>
-      <h1>Pow #4</h1>
+      <Show when={!props.i}>
+        <h1>Pow #4</h1>
+      </Show>
       <Grid grid={grid()} />
-      <div class="toolbar">
-        <button onClick={() => setI(() => i() + 1)}>+</button>
-        <button onClick={() => setI(() => i() - 1)} disabled={i() == 0}>-</button>
-        <input
-          type="number"
-          value={i()}
-          onInput={(e) => setI(e.target.value ? Number(e.target.value) : 0)}
-          min={0}
-        />
-        <div class="chip">
-          {
-            grid()
-              .flat(1)
-              .filter((circle) => circle).length
-          }
+      <Show when={!props.i}>
+        <div class="toolbar">
+          <button onClick={() => setI(() => i() + 1)}>+</button>
+          <button onClick={() => setI(() => i() - 1)} disabled={i() == 0}>-</button>
+          <input
+            type="number"
+            value={i()}
+            onInput={(e) => setI(e.target.value ? Number(e.target.value) : 0)}
+            min={0}
+          />
+          <div class="chip">
+            {
+              grid()
+                .flat(1)
+                .filter((circle) => circle).length
+            }
+          </div>
         </div>
-      </div>
-      <div>
-        <input type="range" min={0} max={50}
-          value={i()}
-          onInput={(e) => setI(e.target.value ? Number(e.target.value) : 0)}
-        />
-      </div>
+        <div>
+          <input type="range" min={0} max={50}
+            value={i()}
+            onInput={(e) => setI(e.target.value ? Number(e.target.value) : 0)}
+          />
+        </div>
+      </Show>
     </>
   );
 }

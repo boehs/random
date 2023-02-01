@@ -1,0 +1,43 @@
+#previews {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1em;
+}
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px)
+    }
+    
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#previews > * {
+    flex: 1;
+    border: var(--sec) 2px solid;
+    border-radius: 5px;
+    padding: 5px;
+    animation: cardIn 1s cubic-bezier(0.5, 0, 0.10, 1);
+    opacity: 0;
+    animation-delay: calc((250ms * var(--delay)));
+    animation-fill-mode: forwards;
+}
+
+#previews > * > .preview {
+    background: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#previews > * > .preview > * {
+    pointer-events: none;
+}
+
+#previews > * > h1 {
+    margin: 5px;
+}

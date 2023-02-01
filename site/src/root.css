@@ -8,6 +8,12 @@
     transition: all 0.3s ;
 }
 
+@property --offset {
+    initial-value: 0px;
+    inherits: false;
+    syntax: '<length>';
+}
+
 html, body {margin:0;padding:0;height:100%;}
 
 body {
@@ -16,6 +22,8 @@ body {
     width: 100%;
     margin: 0;
     font-family: 'Ubuntu', sans-serif;
+    scroll-behavior: smooth;
+    overflow: overlay;
 }
 
 body > div {
@@ -26,13 +34,14 @@ body > div {
     flex-direction: column;
     height: 100%;
     justify-content: space-between;
+    position: relative;
 }
 
 body article > * {
     margin-block: 1em;
 }
 
-input, button, .chip {
+input, button, .button, .chip {
     border: 0;
     padding: 5px;
     font-size: 18px;
@@ -42,6 +51,7 @@ input, button, .chip {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 input {
@@ -49,9 +59,20 @@ input {
     flex: 1.5
 }
 
-button:active {
+button:active, .button:active {
     transition: rotate scale 0.1s;
     transform: rotate(10deg) scale(1.05);
+}
+
+button:active::after, .button > a:active::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    border: 1px solid red;
+    transform: rotate(-10deg) !important;
 }
 
 input:active {
@@ -64,15 +85,24 @@ input:focus {
     border-color: #D9B365;
 }
 
-input:disabled, button:disabled {
+input:disabled, button:disabled, .button.disabled {
     background-color: lightgray;
-    color: black
+    color: black;
+    cursor: not-allowed;
 }
 
-button {
+button, .button {
     background: var(--pri);
     min-width: 35px;
     cursor: pointer;
+}
+
+.button > a, a.button {
+    text-decoration: none;
+    color: black;
+    width: 100%;
+    height: 100%;
+    text-align: center;
 }
 
 input[type='range'] {
@@ -110,7 +140,7 @@ hr {
 }
 
 h1 {
-    margin-block-end: 0 !important;
+    margin-block-end: 0;
 }
 
 .breadcrumb {
@@ -137,6 +167,9 @@ nav {
     padding: 10px;
     border-radius: 0px 0px 5px 5px;
     border-top: none;
+    position: sticky;
+    top:0;
+    background-color: white;
 }
 
 footer {
@@ -175,4 +208,19 @@ blockquote {
     body > div {
         margin: 0px 30px;
     }
+}
+
+.card {
+    width: '100%';
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border: 2px solid var(--sec);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+a {
+    color: #3c6b9d;
 }
