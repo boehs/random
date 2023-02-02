@@ -215,7 +215,7 @@ article {
 }
 
 // just for fun
-img {
+img:not(.no) {
   min-width: 50%;
   max-width: 100%;
   border-radius: 5px;
@@ -280,4 +280,8 @@ a {
       transform: rotate(9deg) scale(30);
     }
   }
+}
+
+.no:hover {
+  transform: skew(30deg, 20deg);
 }
