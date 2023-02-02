@@ -1,5 +1,6 @@
 // @refresh reload
-import { For, Suspense } from "solid-js";
+import { createContextProvider } from "@solid-primitives/context";
+import { createSignal, For, Suspense } from "solid-js";
 import {
   A,
   Body,
@@ -16,7 +17,15 @@ import {
 } from "solid-start";
 import "./root.scss";
 
+export const [SecondsHereProvider, useSecondsHere] = createContextProvider(() => {
+  const breathsPerMinute = 16
+  const [breathsSinceVisiting, setBSV] = createSignal(0)
+  setInterval(() => setBSV(breathsSinceVisiting() + 1), (1000 * 60) / breathsPerMinute)
+  return breathsSinceVisiting
+})
+
 export default function Root() {
+
   return (
     <Html lang="en">
       <Head>
@@ -40,9 +49,11 @@ export default function Root() {
                 </ul>
               </nav>
               <article>
-                <Routes>
-                  <FileRoutes />
-                </Routes>
+                <SecondsHereProvider>
+                  <Routes>
+                    <FileRoutes />
+                  </Routes>
+                </SecondsHereProvider>
               </article>
               <footer>
                 <p>By <a href="https://boehs.org">Evan Boehs</a>, <i>All Rights Reserved</i></p>

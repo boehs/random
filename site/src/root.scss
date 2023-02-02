@@ -73,6 +73,7 @@ button,
   align-items: center;
   justify-content: center;
   position: relative;
+  flex-wrap: wrap;
 }
 
 button,
@@ -158,8 +159,8 @@ hr {
   .chip {
     background: repeating-linear-gradient(
       45deg,
-      #d6e3de var(--offset),
-      #d6e3de calc(var(--offset) + 10px),
+      #edf1f0 var(--offset),
+      #edf1f0 calc(var(--offset) + 10px),
       #fff calc(var(--offset) + 10px),
       #fff calc(var(--offset) + 20px)
     );
@@ -267,17 +268,19 @@ a {
   width: 1em;
   display: inline-block;
   background-color: white;
-
+  position: relative;
   > img {
     cursor: none;
     border-radius: 0;
 
     &:hover {
       transform: rotate(3deg) scale(10);
+      z-index: 99;
     }
 
     &:active {
       transform: rotate(9deg) scale(30);
+      z-index: 99;
     }
   }
 }
