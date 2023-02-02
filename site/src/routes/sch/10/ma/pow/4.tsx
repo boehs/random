@@ -28,6 +28,10 @@ export default function Counter(props: {
     if (grid[i() + 1] && grid[i() + 1][i() + 1] != undefined) grid[i() + 1][i() + 1] = true;
     return grid;
   })
+  
+  const filled = () => grid()
+    .flat(1)
+    .filter((circle) => circle).length
 
   return (
     <>
@@ -45,12 +49,8 @@ export default function Counter(props: {
             onInput={(e) => setI(e.target.value ? Number(e.target.value) : 0)}
             min={0}
           />
-          <div class="chip">
-            {
-              grid()
-                .flat(1)
-                .filter((circle) => circle).length
-            }
+          <div class="chip" style={{"--offset": filled() / 20 + 'px'}}>
+            {filled()}
           </div>
         </div>
         <div>

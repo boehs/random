@@ -1,6 +1,12 @@
 :root {
   --pri: #40b58a;
   --sec: #529a82;
+  --ani: cardIn 1s cubic-bezier(0.5, 0, 0.1, 1);
+}
+
+* {
+  box-sizing: border-box;
+  transition: all 0.3s;
 }
 
 @keyframes cardIn {
@@ -13,11 +19,6 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-* {
-  box-sizing: border-box;
-  transition: all 0.3s;
 }
 
 @property --offset {
@@ -74,15 +75,16 @@ button,
   position: relative;
 }
 
-input {
-  width: 100%;
-  flex: 1.5;
-}
+button,
+.button {
+  background: var(--pri);
+  min-width: 35px;
+  cursor: pointer;
 
-button:active,
-.button:active {
-  transition: rotate scale 0.1s;
-  transform: rotate(10deg) scale(1.05);
+  &:active {
+    transition: rotate scale 0.1s;
+    transform: rotate(10deg) scale(1.05);
+  }
 }
 
 button:active::after,
@@ -96,14 +98,24 @@ button:active::after,
   transform: rotate(-10deg) !important;
 }
 
-input:active {
-  transition: scale 0.1s;
-  transform: scale(1.05);
-}
+input {
+  width: 100%;
+  flex: 1.5;
 
-input:focus {
-  outline: none;
-  border-color: #d9b365;
+  &:active {
+    transition: scale 0.1s;
+    transform: scale(1.05);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #d9b365;
+  }
+
+  &[type="range"] {
+    width: 100%;
+    padding: 0;
+  }
 }
 
 input:disabled,
@@ -114,29 +126,19 @@ button:disabled,
   cursor: not-allowed;
 }
 
-button,
 .button {
-  background: var(--pri);
-  min-width: 35px;
-  cursor: pointer;
-}
+  > a {
+    text-decoration: none;
+    color: black;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 5px;
+  }
 
-.button > a {
-  text-decoration: none;
-  color: black;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 5px;
-}
-
-.button:has(a) {
-  padding: 0;
-}
-
-input[type="range"] {
-  width: 100%;
-  padding: 0;
+  &:has(a) {
+    padding: 0;
+  }
 }
 
 hr {
@@ -156,10 +158,10 @@ hr {
   .chip {
     background: repeating-linear-gradient(
       45deg,
-      #d6e3de,
-      #d6e3de 10px,
-      #fff 10px,
-      #fff 20px
+      #d6e3de var(--offset),
+      #d6e3de calc(var(--offset) + 10px),
+      #fff calc(var(--offset) + 10px),
+      #fff calc(var(--offset) + 20px)
     );
   }
 }
@@ -212,14 +214,21 @@ article {
   flex: 1;
 }
 
+// just for fun
 img {
   min-width: 50%;
   max-width: 100%;
   border-radius: 5px;
+  cursor: wait;
 
   &:hover {
     transition: rotate scale 0.1s;
     transform: rotate(3deg) scale(1.05);
+  }
+
+  &:active {
+    transform: rotate(9deg) scale(5);
+    border-radius: 30px;
   }
 }
 
@@ -244,11 +253,31 @@ blockquote {
   border: 2px solid var(--sec);
   border-radius: 5px;
   padding: 5px;
-  animation: cardIn 1s cubic-bezier(0.5, 0, 0.1, 1);
+  animation: var(--ani);
   animation-fill-mode: forwards;
   animation-delay: calc((300ms * var(--delay)));
 }
 
 a {
   color: #3c6b9d;
+}
+
+.emoji {
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+  background-color: white;
+
+  > img {
+    cursor: none;
+    border-radius: 0;
+
+    &:hover {
+      transform: rotate(3deg) scale(10);
+    }
+
+    &:active {
+      transform: rotate(9deg) scale(30);
+    }
+  }
 }

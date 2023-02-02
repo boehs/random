@@ -10,7 +10,7 @@
     border: var(--sec) 2px solid;
     border-radius: 5px;
     padding: 5px;
-    animation: cardIn 1s cubic-bezier(0.5, 0, 0.10, 1);
+    animation: var(--ani);
     opacity: 0;
     animation-delay: calc((250ms * var(--delay)));
     animation-fill-mode: forwards;
@@ -24,8 +24,4 @@
 
 #previews > * > .preview > * {
     pointer-events: none;
-}
-
-#previews > * > h1 {
-    margin: 5px;
 }
