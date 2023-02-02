@@ -1,4 +1,4 @@
-import { createSignal, Show } from "solid-js";
+import { createSignal, For, Show } from "solid-js";
 import { Title } from "solid-start";
 import { HttpStatusCode } from "solid-start/server";
 import EmOMG from "~/components/EmOMG";
@@ -25,13 +25,23 @@ export default function NotFound() {
           <Show when={remainingBreaths() > 0} fallback={'You should be dead. Why are you not dead. Go die.'}>
             Since visiting, you have taken&nbsp;<b>{useSecondsHere()!()}</b>&nbsp;breath{useSecondsHere()!() == 1 ? '' : 's'}
             <Show when={age()}>
-              , and hence have&nbsp;<b>{remainingBreaths()}</b>&nbsp;breaths left.
+            &nbsp;,and hence have&nbsp;<b>{remainingBreaths()}</b>&nbsp;breaths left.
             </Show>
           </Show>
         </p>
       </div>
       <Show when={age()}>
         <p>On second thought... Maybe hold that breath in.</p>
+        <p>On a more chearful note, this is your age represented by waddling ducks.</p>
+        <div style={{
+          "display": "flex",
+          "flex-wrap": "wrap",
+          "font-size": "50px"
+        }}>
+          <For each={Array(age())}>
+            {duck => <EmOMG giphy="rtRflhLVzbNWU" />}
+          </For>
+        </div>
       </Show>
     </main>
   );
