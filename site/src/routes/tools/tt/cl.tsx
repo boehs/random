@@ -22,30 +22,25 @@ export default function Cl() {
     }))
 
     const ruleNewStudent = (a: string) => setStudents(student => student.name === (a), "ruled", true)
-    
-    const withoutS = (arr: any, s: string) => arr.filter(student => student != s)
 
 
-    const addStudentX = (studentToAdd: string, studentWeAreAddingTo: string, x: keyof student) => {
-        const student = students.find(s => s.name == studentWeAreAddingTo)
-        const studentToAddAsStudent = students.find(s => s.name == studentToAdd)
+    const addStudentX = (newStudent: string, oldStudent: string, x: keyof student) => {
+        const student = students.find(s => s.name == oldStudent)
         if (student) {
-            if ((student[x] as string[]).includes(studentToAdd)) return
+            if ((student[x] as string[]).includes(newStudent)) return
         }
-        setStudents(student => student.name === studentToAdd, x, musts => [...musts, studentWeAreAddingTo, withoutS(student?.must, studentToAddAsStudent?.name)])
-        setStudents(student => student.name === studentWeAreAddingTo, x, musts => [...musts, studentToAdd, withoutS(studentToAddAsStudent?.must,student?.name)])
+        setStudents(student => student.name === (newStudent), x, musts => [...musts, oldStudent])
+        setStudents(student => student.name === oldStudent, x, musts => [...musts, newStudent])
         filterRS()
     }
 
-    const removeStudentX = (studentToRemove: string, studentThatAreRemovingFrom: string, x: keyof student) => {
-        const student = students.find(s => s.name == studentThatAreRemovingFrom)
+    const removeStudentX = (newStudent: string, oldStudent: string, x: keyof student) => {
+        const student = students.find(s => s.name == oldStudent)
         if (student) {
-            if (!(student[x] as string[]).includes(studentToRemove)) return
+            if (!(student[x] as string[]).includes(newStudent)) return
         }
-        setStudents(student => student.name === studentToRemove, x,
-            musts => musts.filter(must => must !== studentThatAreRemovingFrom))
-        setStudents(student => student.name === studentThatAreRemovingFrom, x,
-            musts => musts.filter(must => must !== studentToRemove))
+        setStudents(student => student.name === (newStudent), x, musts => musts.filter(must => must !== oldStudent))
+        setStudents(student => student.name === oldStudent, x, musts => musts.filter(must => must !== newStudent))
         filterRS()
     }
 
