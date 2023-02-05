@@ -3,10 +3,12 @@ import { useRouteData } from "solid-start"
 import EmOMG from "~/components/EmOMG"
 
 export function routeData() {
-    const passwordEndpoint = 'https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10-million-password-list-top-10000.txt'
+    const sl = 'https://raw.githubusercontent.com/danielmiessler/SecLists/master/'
+    
+    const passwordEndpoint = sl + 'Passwords/Common-Credentials/10-million-password-list-top-10000.txt'
     const [passwords] = createResource(async () => (await (await fetch(passwordEndpoint)).text()).split('\n'))
 
-    const usernameEndpoint = 'https://raw.githubusercontent.com/danielmiessler/SecLists/master/Usernames/Honeypot-Captures/multiplesources-users-fabian-fingerle.de.txt'
+    const usernameEndpoint = sl + 'Usernames/Honeypot-Captures/multiplesources-users-fabian-fingerle.de.txt'
     const [usernames] = createResource(async () => (await (await fetch(usernameEndpoint)).text()).split('\n').slice(250))
 
     return { passwords, usernames }

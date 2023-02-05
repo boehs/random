@@ -23,9 +23,9 @@ export default function NotFound() {
         <input type="number" min={0} onInput={(e) => setAge(Number(e.target.value))} placeholder="I am this many years old" />
         <p class="chip" style={{ "flex-grow": '2' }}>
           <Show when={remainingBreaths() > 0} fallback={'You should be dead. Why are you not dead. Go die.'}>
-            Since visiting, you have taken&nbsp;<b>{useSecondsHere()!()}</b>&nbsp;breath{useSecondsHere()!() == 1 ? '' : 's'}
+            Since visiting, you have taken&nbsp;<b>{useSecondsHere()!()}</b>&nbsp;breath{() => useSecondsHere()!() == 1 ? '' : 's'}
             <Show when={age()}>
-            &nbsp;,and hence have&nbsp;<b>{remainingBreaths()}</b>&nbsp;breaths left.
+            , and hence have&nbsp;<b>{remainingBreaths()}</b>&nbsp;breaths left.
             </Show>
           </Show>
         </p>

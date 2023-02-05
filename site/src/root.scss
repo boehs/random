@@ -60,6 +60,7 @@ body {
 }
 
 input,
+textarea, 
 button,
 .button,
 .chip {
@@ -76,8 +77,14 @@ button,
   flex-wrap: wrap;
 }
 
+input,
+.chip {
+  min-width: 200px;
+}
+
 button,
-.button {
+.button,
+input[type="submit"] {
   background: var(--pri);
   min-width: 35px;
   cursor: pointer;
@@ -89,6 +96,7 @@ button,
 }
 
 button:active::after,
+input[type="submit"]:active::after,
 .button > a:active::after {
   content: "";
   width: 100%;
@@ -99,7 +107,8 @@ button:active::after,
   transform: rotate(-10deg) !important;
 }
 
-input {
+input,
+textarea {
   width: 100%;
   flex: 1.5;
 
@@ -120,6 +129,8 @@ input {
 }
 
 input:disabled,
+textarea:disabled,
+input[type="submit"]:disabled,
 button:disabled,
 .button.disabled {
   background-color: lightgray;
@@ -151,6 +162,8 @@ hr {
 
 .toolbar {
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 
   > * {
     flex: 1;

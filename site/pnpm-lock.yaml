@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@solid-primitives/context': ^0.1.3
+  '@solid-primitives/set': ^0.3.2
   '@solidjs/meta': ^0.28.2
   '@solidjs/router': ^0.7.0
   '@types/node': ^18.11.18
@@ -18,6 +19,7 @@ specifiers:
 
 dependencies:
   '@solid-primitives/context': 0.1.3_solid-js@1.6.10
+  '@solid-primitives/set': 0.3.2_solid-js@1.6.10
   '@solidjs/meta': 0.28.2_solid-js@1.6.10
   '@solidjs/router': 0.7.0_solid-js@1.6.10
   sass: 1.58.0
@@ -1507,6 +1509,32 @@ packages:
 
   /@solid-primitives/context/0.1.3_solid-js@1.6.10:
     resolution: {integrity: sha512-OxEbKbs4ZtXbRE9inkPzeRv9mOkSLwP+VErwYEpHxtsCJuZgmHEkNt4L47t8RQUCPdbUL2cNJYZZzQvZzgTcdA==}
+    peerDependencies:
+      solid-js: ^1.6.0
+    dependencies:
+      solid-js: 1.6.10
+    dev: false
+
+  /@solid-primitives/set/0.3.2_solid-js@1.6.10:
+    resolution: {integrity: sha512-CCYykO0e0lo3s07DwPrfY7LwJ2c/jby5+nbfT3I6036cqMBNriaMTj87HxlpDqsTuu0slPGzS4k62nziLx6T+w==}
+    peerDependencies:
+      solid-js: ^1.6.0
+    dependencies:
+      '@solid-primitives/trigger': 0.0.4_solid-js@1.6.10
+      solid-js: 1.6.10
+    dev: false
+
+  /@solid-primitives/trigger/0.0.4_solid-js@1.6.10:
+    resolution: {integrity: sha512-MLdiHC69bxhmWtYB0I0D/0xgJUX7Q9cM4+YgF7pWq60CzkOxoMUCTmM3zUFrohGzPOfTmUpdi3nbYT7PVZdAGw==}
+    peerDependencies:
+      solid-js: ^1.6.0
+    dependencies:
+      '@solid-primitives/utils': 5.1.0_solid-js@1.6.10
+      solid-js: 1.6.10
+    dev: false
+
+  /@solid-primitives/utils/5.1.0_solid-js@1.6.10:
+    resolution: {integrity: sha512-1qmY9VaHWbEolBGhszqq7ziPJpXOXtcsQ14I7j8o/57bvfBQtwZ64idJrSdPBPIGzKSyPVZ1olYWz4yfitTBrA==}
     peerDependencies:
       solid-js: ^1.6.0
     dependencies:
