@@ -21,6 +21,17 @@
   }
 }
 
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @property --offset {
   initial-value: 0px;
   inherits: false;
@@ -236,9 +247,11 @@ img:not(.no) {
   max-width: 100%;
   border-radius: 5px;
   cursor: wait;
+  position: relative;
 
   &:hover {
     transition: rotate scale 0.1s;
+    z-index: 99;
     transform: rotate(3deg) scale(1.05);
   }
 
@@ -284,6 +297,7 @@ a {
   display: inline-block;
   background-color: white;
   position: relative;
+  animation: zoom 0.3s ease-in-out;
   > img {
     cursor: none;
     position: relative;
