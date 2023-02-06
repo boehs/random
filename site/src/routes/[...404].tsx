@@ -46,7 +46,7 @@ export default function NotFound() {
           "font-size": "50px"
         }}>
           <For each={Array(age())}>
-            {duck => <EmOMG giphy="rtRflhLVzbNWU" alt="duck" />}
+            {duck => <span style={{"animation": "zoom 0.3s ease-in-out;"}}><EmOMG giphy="rtRflhLVzbNWU" alt="duck" /></span>}
           </For>
         </div>
       </Show>

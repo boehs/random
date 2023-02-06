@@ -205,6 +205,11 @@ h1 {
   list-style: none;
   margin: 0;
   padding: 0;
+  
+  > li > a {
+    animation: var(--ani);
+    display: inline-block;
+  }
 
   & li:not(:first-child)::before {
     display: inline-block;
@@ -297,7 +302,6 @@ a {
   display: inline-block;
   background-color: white;
   position: relative;
-  animation: zoom 0.3s ease-in-out;
   > img {
     cursor: none;
     position: relative;
@@ -344,4 +348,8 @@ a {
       content: '📁';
     }
   }
+}
+
+main {
+  animation: var(--ani);
 }
