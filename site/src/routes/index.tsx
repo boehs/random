@@ -1,6 +1,7 @@
 import { For } from "solid-js";
 import { Title } from "solid-start";
 import EmOMG from "~/components/EmOMG";
+import { FourOFolder } from "./[...404]";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
           {gif => <img src={`/buttons/${gif}.gif`} class="no"/>}
         </For>
       </div>
+      <FourOFolder hideMsg/>
     </main>
   );
 }

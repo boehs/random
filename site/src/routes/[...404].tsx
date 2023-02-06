@@ -1,9 +1,10 @@
 import { createSignal, For, Show } from "solid-js";
-import { Title } from "solid-start";
+import { A, Title, useLocation } from "solid-start";
 import { HttpStatusCode } from "solid-start/server";
 import EmOMG from "~/components/EmOMG";
 import { Plural } from "~/components/Helpers";
 import { useSecondsHere } from "~/root";
+import routeMf, { Route } from "~/routeMf";
 
 export default function NotFound() {
   const breathsPerMinute = 16
@@ -11,7 +12,7 @@ export default function NotFound() {
   const yearsLeft = () => age() ? 78 - age()! : 78
 
   const seconds = useSecondsHere() || (() => 0)
-  
+
   const remainingBreaths = () => (breathsPerMinute * 60 * 24 * 360 * yearsLeft()) - seconds()
 
 
@@ -49,6 +50,32 @@ export default function NotFound() {
           </For>
         </div>
       </Show>
-    </main>
+      <FourOFolder />
+    </main >
   );
+}
+
+export function FourOFolder(props: {
+  hideMsg?: boolean
+}) {
+  console.log(useLocation().pathname)
+  const routeChildren = useLocation().pathname.split('/').slice(1).reduce((o, i) => {
+    return o != false ? ((i == '' ? o : o[i]) || false) : false
+  },routeMf)
+  
+  return <>
+    <Show when={!props.hideMsg && routeChildren}>
+      <h2>Today's your lucky day</h2>
+      <p>We found these matching subroutes</p>
+    </Show>
+    <ul class="list">
+      <For each={Object.entries(routeChildren ? routeChildren.children ? routeChildren.children : routeChildren : [])}>
+        {([loc, bd]) => <li>
+          <A class="sbt" href={useLocation().pathname == '/' ? loc : useLocation().pathname + '/' + loc}>
+            <span>{loc}:</span> <i>{bd.description}</i>
+          </A>
+        </li>}
+        </For>
+    </ul>
+  </>
 }

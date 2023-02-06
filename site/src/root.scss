@@ -319,3 +319,29 @@ a {
   transform: skew(30deg, 20deg);
   cursor: grabbing;
 }
+
+.sbt {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.list {
+  padding-inline-start: 0;
+  
+  > li {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    border-radius: 5px;
+    
+    &:nth-child(odd) {
+      background-color: whitesmoke;
+    }
+    
+    &::before {
+      display: inline;
+      content: '📁';
+    }
+  }
+}
