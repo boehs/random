@@ -8,6 +8,6 @@ export default defineConfig({
     noExternal: ['function-plot', /d3-.*/],
   },
   define: {
-    global: "window",
+    global: {},
   },
 });

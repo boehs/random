@@ -1,16 +1,14 @@
-import { easeCubicInOut } from 'd3-ease';
 import require$$7 from 'events';
-import require$$0$1 from 'math-codegen';
 
 var manifest = {
 	"/*404": [
 	{
 		type: "script",
-		href: "/assets/_...404_.7bffaafb.js"
+		href: "/assets/_...404_.803f4f5d.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.c5df4b37.js"
+		href: "/assets/entry-client.4ca59927.js"
 	},
 	{
 		type: "style",
@@ -18,17 +16,17 @@ var manifest = {
 	},
 	{
 		type: "script",
-		href: "/assets/EmOMG.e1ded440.js"
+		href: "/assets/EmOMG.3fa02c92.js"
 	}
 ],
 	"/": [
 	{
 		type: "script",
-		href: "/assets/index.2e089484.js"
+		href: "/assets/index.aafbb0fc.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.c5df4b37.js"
+		href: "/assets/entry-client.4ca59927.js"
 	},
 	{
 		type: "style",
@@ -36,21 +34,21 @@ var manifest = {
 	},
 	{
 		type: "script",
-		href: "/assets/EmOMG.e1ded440.js"
+		href: "/assets/EmOMG.3fa02c92.js"
 	},
 	{
 		type: "script",
-		href: "/assets/_...404_.7bffaafb.js"
+		href: "/assets/_...404_.803f4f5d.js"
 	}
 ],
 	"/test/plot": [
 	{
 		type: "script",
-		href: "/assets/plot.9f9883cd.js"
+		href: "/assets/plot.a19dbd48.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.c5df4b37.js"
+		href: "/assets/entry-client.4ca59927.js"
 	},
 	{
 		type: "style",
@@ -300,11 +298,11 @@ var manifest = {
 	"/tomfoolery/passwordSuggestions": [
 	{
 		type: "script",
-		href: "/assets/passwordSuggestions.02c4412a.js"
+		href: "/assets/passwordSuggestions.a527a10b.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.c5df4b37.js"
+		href: "/assets/entry-client.4ca59927.js"
 	},
 	{
 		type: "style",
@@ -312,17 +310,17 @@ var manifest = {
 	},
 	{
 		type: "script",
-		href: "/assets/EmOMG.e1ded440.js"
+		href: "/assets/EmOMG.3fa02c92.js"
 	}
 ],
 	"/tools/tt/cl": [
 	{
 		type: "script",
-		href: "/assets/cl.a269c594.js"
+		href: "/assets/cl.b7ba862b.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.c5df4b37.js"
+		href: "/assets/entry-client.4ca59927.js"
 	},
 	{
 		type: "style",
@@ -332,11 +330,11 @@ var manifest = {
 	"/sch/10/ma/pow/4": [
 	{
 		type: "script",
-		href: "/assets/4.054c19c1.js"
+		href: "/assets/4.4f0d4b32.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.c5df4b37.js"
+		href: "/assets/entry-client.4ca59927.js"
 	},
 	{
 		type: "style",
@@ -346,11 +344,11 @@ var manifest = {
 	"/sch/10/ma/pow/": [
 	{
 		type: "script",
-		href: "/assets/index.82352675.js"
+		href: "/assets/index.2e61115b.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.c5df4b37.js"
+		href: "/assets/entry-client.4ca59927.js"
 	},
 	{
 		type: "style",
@@ -358,7 +356,7 @@ var manifest = {
 	},
 	{
 		type: "script",
-		href: "/assets/4.054c19c1.js"
+		href: "/assets/4.4f0d4b32.js"
 	},
 	{
 		type: "style",
@@ -368,7 +366,7 @@ var manifest = {
 	"entry-client": [
 	{
 		type: "script",
-		href: "/assets/entry-client.c5df4b37.js"
+		href: "/assets/entry-client.4ca59927.js"
 	},
 	{
 		type: "style",
@@ -5650,7 +5648,7 @@ var iCombinations = {
  * whether it has CSS classes, styles, or needs italic correction.
  */
 
-class SymbolNode {
+let SymbolNode$6 = class SymbolNode {
   constructor(text, height, depth, italic, skew, width, classes, style) {
     this.text = void 0;
     this.height = void 0;
@@ -5774,7 +5772,7 @@ class SymbolNode {
     }
   }
 
-}
+};
 /**
  * SVG nodes are used to render stretchy wide elements.
  */
@@ -5888,7 +5886,7 @@ class LineNode {
 
 }
 function assertSymbolDomNode(group) {
-  if (group instanceof SymbolNode) {
+  if (group instanceof SymbolNode$6) {
     return group;
   } else {
     throw new Error("Expected symbolNode but got " + String(group) + ".");
@@ -6905,11 +6903,11 @@ var makeSymbol = function makeSymbol(value, fontName, mode, options, classes) {
       italic = 0;
     }
 
-    symbolNode = new SymbolNode(value, metrics.height, metrics.depth, italic, metrics.skew, metrics.width, classes);
+    symbolNode = new SymbolNode$6(value, metrics.height, metrics.depth, italic, metrics.skew, metrics.width, classes);
   } else {
     // TODO(emily): Figure out a good way to only print this in development
     typeof console !== "undefined" && console.warn("No character metrics " + ("for '" + value + "' in style '" + fontName + "' and mode '" + mode + "'"));
-    symbolNode = new SymbolNode(value, 0, 0, 0, 0, 0, classes);
+    symbolNode = new SymbolNode$6(value, 0, 0, 0, 0, 0, classes);
   }
 
   if (options) {
@@ -7095,7 +7093,7 @@ var tryCombineChars = chars => {
     var prev = chars[i];
     var next = chars[i + 1];
 
-    if (prev instanceof SymbolNode && next instanceof SymbolNode && canCombine(prev, next)) {
+    if (prev instanceof SymbolNode$6 && next instanceof SymbolNode$6 && canCombine(prev, next)) {
       prev.text += next.text;
       prev.height = Math.max(prev.height, next.height);
       prev.depth = Math.max(prev.depth, next.depth); // Use the last character's italic correction since we use
@@ -7358,7 +7356,7 @@ var makeVList = function makeVList(params, options) {
     depthStrut.style.height = makeEm(-minPos); // Safari wants the first row to have inline content; otherwise it
     // puts the bottom of the *second* row on the baseline.
 
-    var topStrut = makeSpan$2(["vlist-s"], [new SymbolNode("\u200b")]);
+    var topStrut = makeSpan$2(["vlist-s"], [new SymbolNode$6("\u200b")]);
     rows = [makeSpan$2(["vlist-r"], [vlist, topStrut]), makeSpan$2(["vlist-r"], [depthStrut])];
   } else {
     rows = [makeSpan$2(["vlist-r"], [vlist])];
@@ -14658,7 +14656,7 @@ var htmlBuilder$2 = (grp, options) => {
     // If this is a list, compose that list.
     var inner = buildExpression$1(group.body, options, true);
 
-    if (inner.length === 1 && inner[0] instanceof SymbolNode) {
+    if (inner.length === 1 && inner[0] instanceof SymbolNode$6) {
       base = inner[0];
       base.classes[0] = "mop"; // replace old mclass
     } else {
@@ -14680,7 +14678,7 @@ var htmlBuilder$2 = (grp, options) => {
   var baseShift = 0;
   var slant = 0;
 
-  if ((base instanceof SymbolNode || group.name === "\\oiint" || group.name === "\\oiiint") && !group.suppressBaseShift) {
+  if ((base instanceof SymbolNode$6 || group.name === "\\oiint" || group.name === "\\oiiint") && !group.suppressBaseShift) {
     // We suppress the shift of the base of \overset and \underset. Otherwise,
     // shift the symbol so its center lies on the axis (rule 13). It
     // appears that our fonts have the centers of the symbols already
@@ -14946,7 +14944,7 @@ var htmlBuilder$1 = (grp, options) => {
     for (var i = 0; i < expression.length; i++) {
       var child = expression[i];
 
-      if (child instanceof SymbolNode) {
+      if (child instanceof SymbolNode$6) {
         // Per amsopn package,
         // change minus to hyphen and \ast to asterisk
         child.text = child.text.replace(/\u2212/, "-").replace(/\u2217/, "*");
@@ -15833,7 +15831,7 @@ defineFunctionBuilders({
       // amount. Note we only do this when the base is a single symbol.
       var isOiint = group.base && group.base.type === "op" && group.base.name && (group.base.name === "\\oiint" || group.base.name === "\\oiiint");
 
-      if (base instanceof SymbolNode || isOiint) {
+      if (base instanceof SymbolNode$6 || isOiint) {
         // $FlowFixMe
         marginLeft = makeEm(-base.italic);
       }
@@ -16433,7 +16431,7 @@ combiningDiacriticalMarkString + "*") + // ...plus accents
 
 /** Main Lexer class */
 
-class Lexer {
+let Lexer$2 = class Lexer {
   // Category codes. The lexer only supports comment characters (14) for now.
   // MacroExpander additionally distinguishes active (13).
   constructor(input, settings) {
@@ -16495,7 +16493,7 @@ class Lexer {
     return new Token(text, new SourceLocation(this, pos, this.tokenRegex.lastIndex));
   }
 
-}
+};
 
 /**
  * A `Namespace` refers to a space of nameable things like macros or lengths,
@@ -17625,7 +17623,7 @@ class MacroExpander {
 
 
   feed(input) {
-    this.lexer = new Lexer(input, this.settings);
+    this.lexer = new Lexer$2(input, this.settings);
   }
   /**
    * Switches between "text" and "math" modes.
@@ -18060,7 +18058,7 @@ class MacroExpander {
         }
       }
 
-      var bodyLexer = new Lexer(expansion, this.settings);
+      var bodyLexer = new Lexer$2(expansion, this.settings);
       var tokens = [];
       var tok = bodyLexer.lex();
 
@@ -18636,7 +18634,7 @@ var unicodeSymbols = {
  *
  * The functions return ParseNodes.
  */
-class Parser {
+let Parser$3 = class Parser {
   constructor(input, settings) {
     this.mode = void 0;
     this.gullet = void 0;
@@ -18780,7 +18778,7 @@ class Parser {
 
       var lex = this.fetch();
 
-      if (Parser.endOfExpression.indexOf(lex.text) !== -1) {
+      if (Parser$3.endOfExpression.indexOf(lex.text) !== -1) {
         break;
       }
 
@@ -19033,7 +19031,7 @@ class Parser {
         } // Now create a (sub|super)script.
 
 
-        var body = new Parser(str, this.settings).parse();
+        var body = new Parser$3(str, this.settings).parse();
 
         if (isSub) {
           subscript = {
@@ -19707,8 +19705,8 @@ class Parser {
     return symbol;
   }
 
-}
-Parser.endOfExpression = ["}", "\\endgroup", "\\end", "\\right", "&"];
+};
+Parser$3.endOfExpression = ["}", "\\endgroup", "\\end", "\\right", "&"];
 
 /**
  * Provides a single function for parsing an expression using a Parser
@@ -19723,7 +19721,7 @@ var parseTree = function parseTree(toParse, settings) {
     throw new TypeError('KaTeX can only parse string typed expression');
   }
 
-  var parser = new Parser(toParse, settings); // Blank out any \df@tag to avoid spurious "Duplicate \tag" errors
+  var parser = new Parser$3(toParse, settings); // Blank out any \df@tag to avoid spurious "Duplicate \tag" errors
 
   delete parser.gullet.macros.current["\\df@tag"];
   var tree = parser.parse(); // Prevent a color definition from persisting between calls to katex.render().
@@ -19801,7 +19799,7 @@ var renderError = function renderError(error, expression, options) {
     throw error;
   }
 
-  var node = buildCommon.makeSpan(["katex-error"], [new SymbolNode(expression)]);
+  var node = buildCommon.makeSpan(["katex-error"], [new SymbolNode$6(expression)]);
   node.setAttribute("title", error.toString());
   node.setAttribute("style", "color:" + options.errorColor);
   return node;
@@ -19923,7 +19921,7 @@ var katex = {
   __domTree: {
     Span,
     Anchor,
-    SymbolNode,
+    SymbolNode: SymbolNode$6,
     SvgNode,
     PathNode,
     LineNode
@@ -19933,7 +19931,7 @@ var katex = {
 function isWrappable(obj) {
   return obj != null && typeof obj === "object" && (Object.getPrototypeOf(obj) === Object.prototype || Array.isArray(obj));
 }
-function setProperty(state, property, value, force) {
+function setProperty$1(state, property, value, force) {
   if (!force && state[property] === value) return;
   if (value === undefined) {
     delete state[property];
@@ -19943,7 +19941,7 @@ function mergeStoreNode(state, value, force) {
   const keys = Object.keys(value);
   for (let i = 0; i < keys.length; i += 1) {
     const key = keys[i];
-    setProperty(state, key, value[key], force);
+    setProperty$1(state, key, value[key], force);
   }
 }
 function updateArray(current, next) {
@@ -19954,9 +19952,9 @@ function updateArray(current, next) {
       len = next.length;
     for (; i < len; i++) {
       const value = next[i];
-      if (current[i] !== value) setProperty(current, i, value);
+      if (current[i] !== value) setProperty$1(current, i, value);
     }
-    setProperty(current, "length", len);
+    setProperty$1(current, "length", len);
   } else mergeStoreNode(current, next);
 }
 function updatePath(current, path, traversed = []) {
@@ -20001,7 +19999,7 @@ function updatePath(current, path, traversed = []) {
   if (part === undefined && value == undefined) return;
   if (part === undefined || isWrappable(next) && isWrappable(value) && !Array.isArray(value)) {
     mergeStoreNode(next, value);
-  } else setProperty(current, part, value);
+  } else setProperty$1(current, part, value);
 }
 function createStore(state) {
   const isArray = Array.isArray(state);
@@ -22033,7 +22031,7 @@ const entryServer = createHandler(renderAsync(event => createComponent(StartServ
   event: event
 })));
 
-var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof window !== 'undefined' ? window : typeof self !== 'undefined' ? self : {};
+var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof {} !== 'undefined' ? {} : typeof self !== 'undefined' ? self : {};
 
 function getAugmentedNamespace(n) {
   var f = n.default;
@@ -25198,7 +25196,7 @@ function define(constructor, factory, prototype) {
   prototype.constructor = constructor;
 }
 
-function extend(parent, definition) {
+function extend$5(parent, definition) {
   var prototype = Object.create(parent.prototype);
   for (var key in definition) prototype[key] = definition[key];
   return prototype;
@@ -25448,7 +25446,7 @@ function Rgb(r, g, b, opacity) {
   this.opacity = +opacity;
 }
 
-define(Rgb, rgb, extend(Color, {
+define(Rgb, rgb, extend$5(Color, {
   brighter(k) {
     k = k == null ? brighter : Math.pow(brighter, k);
     return new Rgb(this.r * k, this.g * k, this.b * k, this.opacity);
@@ -25546,7 +25544,7 @@ function Hsl(h, s, l, opacity) {
   this.opacity = +opacity;
 }
 
-define(Hsl, hsl$2, extend(Color, {
+define(Hsl, hsl$2, extend$5(Color, {
   brighter(k) {
     k = k == null ? brighter : Math.pow(brighter, k);
     return new Hsl(this.h, this.s, this.l * k, this.opacity);
@@ -25642,7 +25640,7 @@ function Lab(l, a, b, opacity) {
   this.opacity = +opacity;
 }
 
-define(Lab, lab$1, extend(Color, {
+define(Lab, lab$1, extend$5(Color, {
   brighter(k) {
     return new Lab(this.l + K * (k == null ? 1 : k), this.a, this.b, this.opacity);
   },
@@ -25710,7 +25708,7 @@ function hcl2lab(o) {
   return new Lab(o.l, Math.cos(h) * o.c, Math.sin(h) * o.c, o.opacity);
 }
 
-define(Hcl, hcl$2, extend(Color, {
+define(Hcl, hcl$2, extend$5(Color, {
   brighter(k) {
     return new Hcl(this.h, this.c, this.l + K * (k == null ? 1 : k), this.opacity);
   },
@@ -25756,7 +25754,7 @@ function Cubehelix(h, s, l, opacity) {
   this.opacity = +opacity;
 }
 
-define(Cubehelix, cubehelix$2, extend(Color, {
+define(Cubehelix, cubehelix$2, extend$5(Color, {
   brighter(k) {
     k = k == null ? brighter : Math.pow(brighter, k);
     return new Cubehelix(this.h, this.s, this.l * k, this.opacity);
@@ -30737,11 +30735,15 @@ Transition.prototype = {
   [Symbol.iterator]: selection_prototype[Symbol.iterator]
 };
 
+function cubicInOut(t) {
+  return ((t *= 2) <= 1 ? t * t * t : (t -= 2) * t * t + 2) / 2;
+}
+
 var defaultTiming = {
   time: null, // Set on use.
   delay: 0,
   duration: 250,
-  ease: easeCubicInOut
+  ease: cubicInOut
 };
 
 function inherit(node, id) {
@@ -31495,6 +31497,1250 @@ var builtInMathEval = {exports: {}};
 
 var _eval$1 = {exports: {}};
 
+var mathCodegen$1 = {exports: {}};
+
+var mrParser = {};
+
+var tokenType$2 = {
+  EOF: 0,
+  DELIMITER: 1,
+  NUMBER: 2,
+  STRING: 3,
+  SYMBOL: 4
+};
+
+// token types
+var tokenType$1 = tokenType$2;
+
+var ESCAPES = {
+  'n': '\n',
+  'f': '\f',
+  'r': '\r',
+  't': '\t',
+  'v': '\v',
+  '\'': '\'',
+  '"': '"'
+};
+
+var DELIMITERS = {
+  ',': true,
+  '(': true,
+  ')': true,
+  '[': true,
+  ']': true,
+  ';': true,
+
+  // unary
+  '~': true,
+
+  // factorial
+  '!': true,
+
+  // arithmetic operators
+  '+': true,
+  '-': true,
+  '*': true,
+  '/': true,
+  '%': true,
+  '^': true,
+  '**': true,     // python power like
+
+  // misc operators
+  '|': true,      // bitwise or
+  '&': true,      // bitwise and
+  '^|': true,     // bitwise xor
+  '=': true,
+  ':': true,
+  '?': true,
+
+  '||': true,      // logical or
+  '&&': true,      // logical and
+  'xor': true,     // logical xor
+
+  // relational
+  '==': true,
+  '!=': true,
+  '===': true,
+  '!==': true,
+  '<': true,
+  '>': true,
+  '>=': true,
+  '<=': true,
+
+  // shifts
+  '>>>': true,
+  '<<': true,
+  '>>': true
+};
+
+// helpers
+
+function isDigit (c) {
+  return c >= '0' && c <= '9'
+}
+
+function isIdentifier (c) {
+  return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') ||
+    c === '$' || c === '_'
+}
+
+function isWhitespace (c) {
+  return c === ' ' || c === '\r' || c === '\t' ||
+    c === '\n' || c === '\v' || c === '\u00A0'
+}
+
+function isDelimiter (str) {
+  return DELIMITERS[str]
+}
+
+function isQuote (c) {
+  return c === '\'' || c === '"'
+}
+
+// lexer
+
+function Lexer$1 () {}
+
+Lexer$1.prototype.throwError = function (message, index) {
+  index = typeof index === 'undefined' ? this.index : index;
+
+  var error = new Error(message + ' at index ' + index);
+  error.index = index;
+  error.description = message;
+  throw error
+};
+
+Lexer$1.prototype.lex = function (text) {
+  this.text = text;
+  this.index = 0;
+  this.tokens = [];
+
+  while (this.index < this.text.length) {
+    // skip whitespaces
+    while (isWhitespace(this.peek())) {
+      this.consume();
+    }
+    var c = this.peek();
+    var c2 = c + this.peek(1);
+    var c3 = c2 + this.peek(2);
+
+    // order
+    // - delimiter of 3 characters
+    // - delimiter of 2 characters
+    // - delimiter of 1 character
+    // - number
+    // - variables, functions and named operators
+    if (isDelimiter(c3)) {
+      this.tokens.push({
+        type: tokenType$1.DELIMITER,
+        value: c3
+      });
+      this.consume();
+      this.consume();
+      this.consume();
+    } else if (isDelimiter(c2)) {
+      this.tokens.push({
+        type: tokenType$1.DELIMITER,
+        value: c2
+      });
+      this.consume();
+      this.consume();
+    } else if (isDelimiter(c)) {
+      this.tokens.push({
+        type: tokenType$1.DELIMITER,
+        value: c
+      });
+      this.consume();
+    } else if (isDigit(c) ||
+        (c === '.' && isDigit(this.peek(1)))) {
+      this.tokens.push({
+        type: tokenType$1.NUMBER,
+        value: this.readNumber()
+      });
+    } else if (isQuote(c)) {
+      this.tokens.push({
+        type: tokenType$1.STRING,
+        value: this.readString()
+      });
+    } else if (isIdentifier(c)) {
+      this.tokens.push({
+        type: tokenType$1.SYMBOL,
+        value: this.readIdentifier()
+      });
+    } else {
+      this.throwError('unexpected character ' + c);
+    }
+  }
+
+  // end token
+  this.tokens.push({ type: tokenType$1.EOF });
+
+  return this.tokens
+};
+
+Lexer$1.prototype.peek = function (nth) {
+  nth = nth || 0;
+  if (this.index + nth >= this.text.length) {
+    return
+  }
+  return this.text.charAt(this.index + nth)
+};
+
+Lexer$1.prototype.consume = function () {
+  var current = this.peek();
+  this.index += 1;
+  return current
+};
+
+Lexer$1.prototype.readNumber = function () {
+  var number = '';
+
+  if (this.peek() === '.') {
+    number += this.consume();
+    if (!isDigit(this.peek())) {
+      this.throwError('number expected');
+    }
+  } else {
+    while (isDigit(this.peek())) {
+      number += this.consume();
+    }
+    if (this.peek() === '.') {
+      number += this.consume();
+    }
+  }
+
+  // numbers after the decimal dot
+  while (isDigit(this.peek())) {
+    number += this.consume();
+  }
+
+  // exponent if available
+  if ((this.peek() === 'e' || this.peek() === 'E')) {
+    number += this.consume();
+
+    if (!(isDigit(this.peek()) ||
+        this.peek() === '+' ||
+        this.peek() === '-')) {
+      this.throwError();
+    }
+
+    if (this.peek() === '+' || this.peek() === '-') {
+      number += this.consume();
+    }
+
+    if (!isDigit(this.peek())) {
+      this.throwError('number expected');
+    }
+
+    while (isDigit(this.peek())) {
+      number += this.consume();
+    }
+  }
+  return number
+};
+
+Lexer$1.prototype.readIdentifier = function () {
+  var text = '';
+  while (isIdentifier(this.peek()) || isDigit(this.peek())) {
+    text += this.consume();
+  }
+  return text
+};
+
+Lexer$1.prototype.readString = function () {
+  var quote = this.consume();
+  var string = '';
+  var escape;
+  while (true) {
+    var c = this.consume();
+    if (!c) {
+      this.throwError('string is not closed');
+    }
+    if (escape) {
+      if (c === 'u') {
+        var hex = this.text.substring(this.index + 1, this.index + 5);
+        if (!hex.match(/[\da-f]{4}/i)) {
+          this.throwError('invalid unicode escape');
+        }
+        this.index += 4;
+        string += String.fromCharCode(parseInt(hex, 16));
+      } else {
+        var replacement = ESCAPES[c];
+        if (replacement) {
+          string += replacement;
+        } else {
+          string += c;
+        }
+      }
+      escape = false;
+    } else if (c === quote) {
+      break
+    } else if (c === '\\') {
+      escape = true;
+    } else {
+      string += c;
+    }
+  }
+  return string
+};
+
+var Lexer_1 = Lexer$1;
+
+function Node$a () {
+
+}
+
+Node$a.prototype.type = 'Node';
+
+var Node_1 = Node$a;
+
+var Node$9 = Node_1;
+
+var SUPPORTED_TYPES = {
+  number: true,
+  string: true,
+  'boolean': true,
+  'undefined': true,
+  'null': true
+};
+
+function ConstantNode$3 (value, type) {
+  if (!SUPPORTED_TYPES[type]) {
+    throw Error('unsupported type \'' + type + '\'')
+  }
+  this.value = value;
+  this.valueType = type;
+}
+
+ConstantNode$3.prototype = Object.create(Node$9.prototype);
+
+ConstantNode$3.prototype.type = 'ConstantNode';
+
+var ConstantNode_1 = ConstantNode$3;
+
+var Node$8 = Node_1;
+
+function OperatorNode$3 (op, args) {
+  this.op = op;
+  this.args = args || [];
+}
+
+OperatorNode$3.prototype = Object.create(Node$8.prototype);
+
+OperatorNode$3.prototype.type = 'OperatorNode';
+
+var OperatorNode_1 = OperatorNode$3;
+
+var Node$7 = Node_1;
+
+function UnaryNode$3 (op, argument) {
+  this.op = op;
+  this.argument = argument;
+}
+
+UnaryNode$3.prototype = Object.create(Node$7.prototype);
+
+UnaryNode$3.prototype.type = 'UnaryNode';
+
+var UnaryNode_1 = UnaryNode$3;
+
+var Node$6 = Node_1;
+
+function SymbolNode$5 (name) {
+  this.name = name;
+}
+
+SymbolNode$5.prototype = Object.create(Node$6.prototype);
+
+SymbolNode$5.prototype.type = 'SymbolNode';
+
+var SymbolNode_1 = SymbolNode$5;
+
+var Node$5 = Node_1;
+
+function FunctionNode$3 (name, args) {
+  this.name = name;
+  this.args = args;
+}
+
+FunctionNode$3.prototype = Object.create(Node$5.prototype);
+
+FunctionNode$3.prototype.type = 'FunctionNode';
+
+var FunctionNode_1 = FunctionNode$3;
+
+var Node$4 = Node_1;
+
+function ArrayNode$3 (nodes) {
+  this.nodes = nodes;
+}
+
+ArrayNode$3.prototype = Object.create(Node$4.prototype);
+
+ArrayNode$3.prototype.type = 'ArrayNode';
+
+var ArrayNode_1 = ArrayNode$3;
+
+var Node$3 = Node_1;
+
+function ConditionalNode$3 (predicate, truthy, falsy) {
+  this.condition = predicate;
+  this.trueExpr = truthy;
+  this.falseExpr = falsy;
+}
+
+ConditionalNode$3.prototype = Object.create(Node$3.prototype);
+
+ConditionalNode$3.prototype.type = 'ConditionalNode';
+
+var ConditionalNode_1 = ConditionalNode$3;
+
+var Node$2 = Node_1;
+
+function AssignmentNode$3 (name, expr) {
+  this.name = name;
+  this.expr = expr;
+}
+
+AssignmentNode$3.prototype = Object.create(Node$2.prototype);
+
+AssignmentNode$3.prototype.type = 'AssignmentNode';
+
+var AssignmentNode_1 = AssignmentNode$3;
+
+var Node$1 = Node_1;
+
+function BlockNode$1 (blocks) {
+  this.blocks = blocks;
+}
+
+BlockNode$1.prototype = Object.create(Node$1.prototype);
+
+BlockNode$1.prototype.type = 'BlockNode';
+
+var BlockNode_1 = BlockNode$1;
+
+var tokenType = tokenType$2;
+
+var Lexer = Lexer_1;
+var ConstantNode$2 = ConstantNode_1;
+var OperatorNode$2 = OperatorNode_1;
+var UnaryNode$2 = UnaryNode_1;
+var SymbolNode$4 = SymbolNode_1;
+var FunctionNode$2 = FunctionNode_1;
+var ArrayNode$2 = ArrayNode_1;
+var ConditionalNode$2 = ConditionalNode_1;
+var AssignmentNode$2 = AssignmentNode_1;
+var BlockNode = BlockNode_1;
+
+/**
+ * Grammar DSL:
+ *
+ * program          : block (; block)*
+ *
+ * block            : assignment
+ *
+ * assignment       : ternary
+ *                  | symbol `=` assignment
+ *
+ * ternary          : logicalOR
+ *                  | logicalOR `?` ternary `:` ternary
+ *
+ * logicalOR        : logicalXOR
+ *                  | logicalXOR (`||`,`or`) logicalOR
+ *
+ * logicalXOR       : logicalAND
+ *                  : logicalAND `xor` logicalXOR
+ *
+ * logicalAND       : bitwiseOR
+ *                  | bitwiseOR (`&&`,`and`) logicalAND
+ *
+ * bitwiseOR        : bitwiseXOR
+ *                  | bitwiseXOR `|` bitwiseOR
+ *
+ * bitwiseXOR       : bitwiseAND
+ *                  | bitwiseAND `^|` bitwiseXOR
+ *
+ * bitwiseAND       : relational
+ *                  | relational `&` bitwiseAND
+ *
+ * relational       : shift
+ *                  | shift (`!=` | `==` | `>` | '<' | '<=' |'>=') shift)
+ *
+ * shift            : additive
+ *                  | additive (`>>` | `<<` | `>>>`) shift
+ *
+ * additive         : multiplicative
+ *                  | multiplicative (`+` | `-`) additive
+ *
+ * multiplicative   : unary
+ *                  | unary (`*` | `/` | `%`) unary
+ *                  | unary symbol
+ *
+ * unary            : pow
+ *                  | (`-` | `+` | `~`) unary
+ *
+ * pow              : factorial
+ *                  | factorial (`^`, '**') unary
+ *
+ * factorial        : symbol
+ *                  | symbol (`!`)
+ *
+ * symbol           : symbolToken
+ *                  | symbolToken functionCall
+ *                  | string
+ *
+ * functionCall     : `(` `)`
+ *                  | `(` ternary (, ternary)* `)`
+ *
+ * string           : `'` (character)* `'`
+ *                  : `"` (character)* `"`
+ *                  | array
+ *
+ * array            : `[` `]`
+ *                  | `[` assignment (, assignment)* `]`
+ *                  | number
+ *
+ * number           : number-token
+ *                  | parentheses
+ *
+ * parentheses      : `(` assignment `)`
+ *                  : end
+ *
+ * end              : NULL
+ *
+ * @param {[type]} lexer [description]
+ */
+function Parser$2 () {
+  this.lexer = new Lexer();
+  this.tokens = null;
+}
+
+Parser$2.prototype.current = function () {
+  return this.tokens[0]
+};
+
+Parser$2.prototype.next = function () {
+  return this.tokens[1]
+};
+
+Parser$2.prototype.peek = function () {
+  if (this.tokens.length) {
+    var first = this.tokens[0];
+    for (var i = 0; i < arguments.length; i += 1) {
+      if (first.value === arguments[i]) {
+        return true
+      }
+    }
+  }
+};
+
+Parser$2.prototype.consume = function (e) {
+  return this.tokens.shift()
+};
+
+Parser$2.prototype.expect = function (e) {
+  if (!this.peek(e)) {
+    throw Error('expected ' + e)
+  }
+  return this.consume()
+};
+
+Parser$2.prototype.isEOF = function () {
+  return this.current().type === tokenType.EOF
+};
+
+Parser$2.prototype.parse = function (text) {
+  this.tokens = this.lexer.lex(text);
+  return this.program()
+};
+
+Parser$2.prototype.program = function () {
+  var blocks = [];
+  while (!this.isEOF()) {
+    blocks.push(this.assignment());
+    if (this.peek(';')) {
+      this.consume();
+    }
+  }
+  this.end();
+  return new BlockNode(blocks)
+};
+
+Parser$2.prototype.assignment = function () {
+  var left = this.ternary();
+  if (left instanceof SymbolNode$4 && this.peek('=')) {
+    this.consume();
+    return new AssignmentNode$2(left.name, this.assignment())
+  }
+  return left
+};
+
+Parser$2.prototype.ternary = function () {
+  var predicate = this.logicalOR();
+  if (this.peek('?')) {
+    this.consume();
+    var truthy = this.ternary();
+    this.expect(':');
+    var falsy = this.ternary();
+    return new ConditionalNode$2(predicate, truthy, falsy)
+  }
+  return predicate
+};
+
+Parser$2.prototype.logicalOR = function () {
+  var left = this.logicalXOR();
+  if (this.peek('||')) {
+    var op = this.consume();
+    var right = this.logicalOR();
+    return new OperatorNode$2(op.value, [left, right])
+  }
+  return left
+};
+
+Parser$2.prototype.logicalXOR = function () {
+  var left = this.logicalAND();
+  if (this.current().value === 'xor') {
+    var op = this.consume();
+    var right = this.logicalXOR();
+    return new OperatorNode$2(op.value, [left, right])
+  }
+  return left
+};
+
+Parser$2.prototype.logicalAND = function () {
+  var left = this.bitwiseOR();
+  if (this.peek('&&')) {
+    var op = this.consume();
+    var right = this.logicalAND();
+    return new OperatorNode$2(op.value, [left, right])
+  }
+  return left
+};
+
+Parser$2.prototype.bitwiseOR = function () {
+  var left = this.bitwiseXOR();
+  if (this.peek('|')) {
+    var op = this.consume();
+    var right = this.bitwiseOR();
+    return new OperatorNode$2(op.value, [left, right])
+  }
+  return left
+};
+
+Parser$2.prototype.bitwiseXOR = function () {
+  var left = this.bitwiseAND();
+  if (this.peek('^|')) {
+    var op = this.consume();
+    var right = this.bitwiseXOR();
+    return new OperatorNode$2(op.value, [left, right])
+  }
+  return left
+};
+
+Parser$2.prototype.bitwiseAND = function () {
+  var left = this.relational();
+  if (this.peek('&')) {
+    var op = this.consume();
+    var right = this.bitwiseAND();
+    return new OperatorNode$2(op.value, [left, right])
+  }
+  return left
+};
+
+Parser$2.prototype.relational = function () {
+  var left = this.shift();
+  if (this.peek('==', '===', '!=', '!==', '>=', '<=', '>', '<')) {
+    var op = this.consume();
+    var right = this.shift();
+    return new OperatorNode$2(op.value, [left, right])
+  }
+  return left
+};
+
+Parser$2.prototype.shift = function () {
+  var left = this.additive();
+  if (this.peek('>>', '<<', '>>>')) {
+    var op = this.consume();
+    var right = this.shift();
+    return new OperatorNode$2(op.value, [left, right])
+  }
+  return left
+};
+
+Parser$2.prototype.additive = function () {
+  var left = this.multiplicative();
+  while (this.peek('+', '-')) {
+    var op = this.consume();
+    left = new OperatorNode$2(op.value, [left, this.multiplicative()]);
+  }
+  return left
+};
+
+Parser$2.prototype.multiplicative = function () {
+  var op, right;
+  var left = this.unary();
+  while (this.peek('*', '/', '%')) {
+    op = this.consume();
+    left = new OperatorNode$2(op.value, [left, this.unary()]);
+  }
+
+  // implicit multiplication
+  // - 2 x
+  // - 2(x)
+  // - (2)2
+  if (this.current().type === tokenType.SYMBOL ||
+      this.peek('(') ||
+      (!(left.type instanceof ConstantNode$2) && this.current().type === tokenType.NUMBER)
+      ) {
+    right = this.multiplicative();
+    return new OperatorNode$2('*', [left, right])
+  }
+
+  return left
+};
+
+Parser$2.prototype.unary = function () {
+  if (this.peek('-', '+', '~')) {
+    var op = this.consume();
+    var right = this.unary();
+    return new UnaryNode$2(op.value, right)
+  }
+  return this.pow()
+};
+
+Parser$2.prototype.pow = function () {
+  var left = this.factorial();
+  if (this.peek('^', '**')) {
+    var op = this.consume();
+    var right = this.unary();
+    return new OperatorNode$2(op.value, [left, right])
+  }
+  return left
+};
+
+Parser$2.prototype.factorial = function () {
+  var left = this.symbol();
+  if (this.peek('!')) {
+    var op = this.consume();
+    return new OperatorNode$2(op.value, [left])
+  }
+  return left
+};
+
+Parser$2.prototype.symbol = function () {
+  var current = this.current();
+  if (current.type === tokenType.SYMBOL) {
+    var symbol = this.consume();
+    var node = this.functionCall(symbol);
+    return node
+  }
+  return this.string()
+};
+
+Parser$2.prototype.functionCall = function (symbolToken) {
+  var name = symbolToken.value;
+  if (this.peek('(')) {
+    this.consume();
+    var params = [];
+    while (!this.peek(')') && !this.isEOF()) {
+      params.push(this.assignment());
+      if (this.peek(',')) {
+        this.consume();
+      }
+    }
+    this.expect(')');
+    return new FunctionNode$2(name, params)
+  }
+  return new SymbolNode$4(name)
+};
+
+Parser$2.prototype.string = function () {
+  if (this.current().type === tokenType.STRING) {
+    return new ConstantNode$2(this.consume().value, 'string')
+  }
+  return this.array()
+};
+
+Parser$2.prototype.array = function () {
+  if (this.peek('[')) {
+    this.consume();
+    var params = [];
+    while (!this.peek(']') && !this.isEOF()) {
+      params.push(this.assignment());
+      if (this.peek(',')) {
+        this.consume();
+      }
+    }
+    this.expect(']');
+    return new ArrayNode$2(params)
+  }
+  return this.number()
+};
+
+Parser$2.prototype.number = function () {
+  var token = this.current();
+  if (token.type === tokenType.NUMBER) {
+    return new ConstantNode$2(this.consume().value, 'number')
+  }
+  return this.parentheses()
+};
+
+Parser$2.prototype.parentheses = function () {
+  var token = this.current();
+  if (token.value === '(') {
+    this.consume();
+    var left = this.assignment();
+    this.expect(')');
+    return left
+  }
+  return this.end()
+};
+
+Parser$2.prototype.end = function () {
+  var token = this.current();
+  if (token.type !== tokenType.EOF) {
+    throw Error('unexpected end of expression')
+  }
+};
+
+var Parser_1 = Parser$2;
+
+var node = {
+  ArrayNode: ArrayNode_1,
+  AssignmentNode: AssignmentNode_1,
+  BlockNode: BlockNode_1,
+  ConditionalNode: ConditionalNode_1,
+  ConstantNode: ConstantNode_1,
+  FunctionNode: FunctionNode_1,
+  Node: Node_1,
+  OperatorNode: OperatorNode_1,
+  SymbolNode: SymbolNode_1,
+  UnaryNode: UnaryNode_1
+};
+
+/*
+ * mr-parser
+ *
+ * Copyright (c) 2015 Mauricio Poppe
+ * Licensed under the MIT license.
+ */
+
+mrParser.Lexer = Lexer_1;
+mrParser.Parser = Parser_1;
+mrParser.nodeTypes = node;
+
+var hasOwn = Object.prototype.hasOwnProperty;
+var toStr = Object.prototype.toString;
+var defineProperty = Object.defineProperty;
+var gOPD = Object.getOwnPropertyDescriptor;
+
+var isArray = function isArray(arr) {
+	if (typeof Array.isArray === 'function') {
+		return Array.isArray(arr);
+	}
+
+	return toStr.call(arr) === '[object Array]';
+};
+
+var isPlainObject = function isPlainObject(obj) {
+	if (!obj || toStr.call(obj) !== '[object Object]') {
+		return false;
+	}
+
+	var hasOwnConstructor = hasOwn.call(obj, 'constructor');
+	var hasIsPrototypeOf = obj.constructor && obj.constructor.prototype && hasOwn.call(obj.constructor.prototype, 'isPrototypeOf');
+	// Not own constructor property must be Object
+	if (obj.constructor && !hasOwnConstructor && !hasIsPrototypeOf) {
+		return false;
+	}
+
+	// Own properties are enumerated firstly, so to speed up,
+	// if last one is own, then all properties are own.
+	var key;
+	for (key in obj) { /**/ }
+
+	return typeof key === 'undefined' || hasOwn.call(obj, key);
+};
+
+// If name is '__proto__', and Object.defineProperty is available, define __proto__ as an own property on target
+var setProperty = function setProperty(target, options) {
+	if (defineProperty && options.name === '__proto__') {
+		defineProperty(target, options.name, {
+			enumerable: true,
+			configurable: true,
+			value: options.newValue,
+			writable: true
+		});
+	} else {
+		target[options.name] = options.newValue;
+	}
+};
+
+// Return undefined instead of __proto__ if '__proto__' is not an own property
+var getProperty = function getProperty(obj, name) {
+	if (name === '__proto__') {
+		if (!hasOwn.call(obj, name)) {
+			return void 0;
+		} else if (gOPD) {
+			// In early versions of node, obj['__proto__'] is buggy when obj has
+			// __proto__ as an own property. Object.getOwnPropertyDescriptor() works.
+			return gOPD(obj, name).value;
+		}
+	}
+
+	return obj[name];
+};
+
+var extend$4 = function extend() {
+	var options, name, src, copy, copyIsArray, clone;
+	var target = arguments[0];
+	var i = 1;
+	var length = arguments.length;
+	var deep = false;
+
+	// Handle a deep copy situation
+	if (typeof target === 'boolean') {
+		deep = target;
+		target = arguments[1] || {};
+		// skip the boolean and the target
+		i = 2;
+	}
+	if (target == null || (typeof target !== 'object' && typeof target !== 'function')) {
+		target = {};
+	}
+
+	for (; i < length; ++i) {
+		options = arguments[i];
+		// Only deal with non-null/undefined values
+		if (options != null) {
+			// Extend the base object
+			for (name in options) {
+				src = getProperty(target, name);
+				copy = getProperty(options, name);
+
+				// Prevent never-ending loop
+				if (target !== copy) {
+					// Recurse if we're merging plain objects or arrays
+					if (deep && copy && (isPlainObject(copy) || (copyIsArray = isArray(copy)))) {
+						if (copyIsArray) {
+							copyIsArray = false;
+							clone = src && isArray(src) ? src : [];
+						} else {
+							clone = src && isPlainObject(src) ? src : {};
+						}
+
+						// Never move original objects, clone them
+						setProperty(target, { name: name, newValue: extend(deep, clone, copy) });
+
+					// Don't bring in undefined values
+					} else if (typeof copy !== 'undefined') {
+						setProperty(target, { name: name, newValue: copy });
+					}
+				}
+			}
+		}
+	}
+
+	// Return the modified object
+	return target;
+};
+
+var ArrayNode$1 = function (node) {
+  var self = this;
+  var arr = [];
+  this.rawify(this.options.rawArrayExpressionElements, function () {
+    arr = node.nodes.map(function (el) {
+      return self.next(el)
+    });
+  });
+  var arrString = '[' + arr.join(',') + ']';
+
+  if (this.options.raw) {
+    return arrString
+  }
+  return this.options.factory + '(' + arrString + ')'
+};
+
+var AssignmentNode$1 = function (node) {
+  return 'scope["' + node.name + '"] = ' + this.next(node.expr)
+};
+
+var ConditionalNode$1 = function (node) {
+  var condition = '!!(' + this.next(node.condition) + ')';
+  var trueExpr = this.next(node.trueExpr);
+  var falseExpr = this.next(node.falseExpr);
+  return '(' + condition + ' ? (' + trueExpr + ') : (' + falseExpr + ') )'
+};
+
+var ConstantNode$1 = function (node) {
+  if (this.options.raw) {
+    return node.value
+  }
+  return this.options.factory + '(' + node.value + ')'
+};
+
+var FunctionNode$1 = {exports: {}};
+
+var SymbolNode$3 = mrParser.nodeTypes.SymbolNode;
+
+var functionProxy$1 = function (node) {
+  return '$$mathCodegen.functionProxy(' + this.next(new SymbolNode$3(node.name)) + ', "' + node.name + '")'
+};
+
+FunctionNode$1.exports = function (node) {
+  var self = this;
+  // wrap in a helper function to detect the type of symbol it must be a function
+  // NOTE: if successful the wrapper returns the function itself
+  // NOTE: node.name should be a symbol so that it's correctly represented as a string in SymbolNode
+  var method = functionProxy$1.call(this, node);
+  var args = [];
+  this.rawify(this.options.rawCallExpressionElements, function () {
+    args = node.args.map(function (arg) {
+      return self.next(arg)
+    });
+  });
+  return method + '(' + args.join(', ') + ')'
+};
+
+FunctionNode$1.exports.functionProxy = functionProxy$1;
+
+var Operators$3 = {
+  // arithmetic
+  '+': 'add',
+  '-': 'sub',
+  '*': 'mul',
+  '/': 'div',
+  '^': 'pow',
+  '%': 'mod',
+  '!': 'factorial',
+
+  // misc operators
+  '|': 'bitwiseOR',       // bitwise or
+  '^|': 'bitwiseXOR',     // bitwise xor
+  '&': 'bitwiseAND',      // bitwise and
+
+  '||': 'logicalOR',      // logical or
+  'xor': 'logicalXOR',    // logical xor
+  '&&': 'logicalAND',     // logical and
+
+  // comparison
+  '<': 'lessThan',
+  '>': 'greaterThan',
+  '<=': 'lessEqualThan',
+  '>=': 'greaterEqualThan',
+  '===': 'strictlyEqual',
+  '==': 'equal',
+  '!==': 'strictlyNotEqual',
+  '!=': 'notEqual',
+
+  // shift
+  '>>': 'shiftRight',
+  '<<': 'shiftLeft',
+  '>>>': 'unsignedRightShift'
+};
+
+var Operators$2 = Operators$3;
+
+var OperatorNode$1 = function (node) {
+  if (this.options.raw) {
+    return ['(' + this.next(node.args[0]), node.op, this.next(node.args[1]) + ')'].join(' ')
+  }
+
+  var namedOperator = Operators$2[node.op];
+
+  if (!namedOperator) {
+    throw TypeError('unidentified operator')
+  }
+
+  /* eslint-disable new-cap */
+  return this.FunctionNode({
+    name: namedOperator,
+    args: node.args
+  })
+  /* eslint-enable new-cap */
+};
+
+var SymbolNode$2 = function (node) {
+  var id = node.name;
+  return '$$mathCodegen.getProperty("' + id + '", scope, ns)'
+};
+
+var UnaryOperators$3 = {
+  '+': 'positive',
+  '-': 'negative',
+  '~': 'oneComplement'
+};
+
+var UnaryOperators$2 = UnaryOperators$3;
+
+var UnaryNode$1 = function (node) {
+  if (this.options.raw) {
+    return node.op + this.next(node.argument)
+  }
+
+  if (!(node.op in UnaryOperators$2)) {
+    throw new SyntaxError(node.op + ' not implemented')
+  }
+
+  var namedOperator = UnaryOperators$2[node.op];
+  /* eslint-disable new-cap */
+  return this.FunctionNode({
+    name: namedOperator,
+    args: [node.argument]
+  })
+  /* eslint-enable new-cap */
+};
+
+var extend$3 = extend$4;
+
+var types$1 = {
+  ArrayNode: ArrayNode$1,
+  AssignmentNode: AssignmentNode$1,
+  ConditionalNode: ConditionalNode$1,
+  ConstantNode: ConstantNode$1,
+  FunctionNode: FunctionNode$1.exports,
+  OperatorNode: OperatorNode$1,
+  SymbolNode: SymbolNode$2,
+  UnaryNode: UnaryNode$1
+};
+
+var Interpreter$3 = function (owner, options) {
+  this.owner = owner;
+  this.options = extend$3({
+    factory: 'ns.factory',
+    raw: false,
+    rawArrayExpressionElements: true,
+    rawCallExpressionElements: false
+  }, options);
+};
+
+extend$3(Interpreter$3.prototype, types$1);
+
+// main method which decides which expression to call
+Interpreter$3.prototype.next = function (node) {
+  if (!(node.type in this)) {
+    throw new TypeError('the node type ' + node.type + ' is not implemented')
+  }
+  return this[node.type](node)
+};
+
+Interpreter$3.prototype.rawify = function (test, fn) {
+  var oldRaw = this.options.raw;
+  if (test) {
+    this.options.raw = true;
+  }
+  fn();
+  if (test) {
+    this.options.raw = oldRaw;
+  }
+};
+
+var Interpreter_1$1 = Interpreter$3;
+
+var Parser$1 = mrParser.Parser;
+var Interpreter$2 = Interpreter_1$1;
+var extend$2 = extend$4;
+
+function CodeGenerator$3 (options, defs) {
+  this.statements = [];
+  this.defs = defs || {};
+  this.interpreter = new Interpreter$2(this, options);
+}
+
+CodeGenerator$3.prototype.setDefs = function (defs) {
+  this.defs = extend$2(this.defs, defs);
+  return this
+};
+
+CodeGenerator$3.prototype.compile = function (namespace) {
+  if (!namespace || !(typeof namespace === 'object' || typeof namespace === 'function')) {
+    throw TypeError('namespace must be an object')
+  }
+  if (typeof namespace.factory !== 'function') {
+    throw TypeError('namespace.factory must be a function')
+  }
+
+  // definitions available in the function
+  // each property under this.defs is mapped to local variables
+  // e.g
+  //
+  //  function (defs) {
+  //    var ns = defs['ns']
+  //    // code generated for the expression
+  //  }
+  this.defs.ns = namespace;
+  this.defs.$$mathCodegen = {
+    getProperty: function (symbol, scope, ns) {
+      if (symbol in scope) {
+        return scope[symbol]
+      }
+      if (symbol in ns) {
+        return ns[symbol]
+      }
+      throw SyntaxError('symbol "' + symbol + '" is undefined')
+    },
+    functionProxy: function (fn, name) {
+      if (typeof fn !== 'function') {
+        throw SyntaxError('symbol "' + name + '" must be a function')
+      }
+      return fn
+    }
+  };
+  this.defs.$$processScope = this.defs.$$processScope || function () {};
+
+  var defsCode = Object.keys(this.defs).map(function (name) {
+    return 'var ' + name + ' = defs["' + name + '"]'
+  });
+
+  // statement join
+  if (!this.statements.length) {
+    throw Error('there are no statements saved in this generator, make sure you parse an expression before compiling it')
+  }
+
+  // last statement is always a return statement
+  this.statements[this.statements.length - 1] = 'return ' + this.statements[this.statements.length - 1];
+
+  var code = this.statements.join(';');
+  var factoryCode = defsCode.join('\n') + '\n' + [
+    'return {',
+    '  eval: function (scope) {',
+    '    scope = scope || {}',
+    '    $$processScope(scope)',
+    '    ' + code,
+    '  },',
+    "  code: '" + code + "'",
+    '}'
+  ].join('\n');
+
+  /* eslint-disable */
+  var factory = new Function('defs', factoryCode);
+  return factory(this.defs)
+  /* eslint-enable */
+};
+
+CodeGenerator$3.prototype.parse = function (code) {
+  var self = this;
+  var program = new Parser$1().parse(code);
+  this.statements = program.blocks.map(function (statement) {
+    return self.interpreter.next(statement)
+  });
+  return this
+};
+
+var CodeGenerator_1$1 = CodeGenerator$3;
+
+/*
+ * math-codegen
+ *
+ * Copyright (c) 2015 Mauricio Poppe
+ * Licensed under the MIT license.
+ */
+
+(function (module) {
+	module.exports = CodeGenerator_1$1;
+} (mathCodegen$1));
+
 var adapter$1 = function () {
   var math = Object.create(Math);
 
@@ -31639,7 +32885,7 @@ var adapter$1 = function () {
   return math
 };
 
-var CodeGenerator$1 = require$$0$1;
+var CodeGenerator$2 = mathCodegen$1.exports;
 var math = adapter$1();
 
 function processScope$1 (scope) {
@@ -31650,7 +32896,7 @@ function processScope$1 (scope) {
 }
 
 _eval$1.exports = function (expression) {
-  return new CodeGenerator$1()
+  return new CodeGenerator$2()
     .setDefs({
       $$processScope: processScope$1
     })
@@ -31675,6 +32921,312 @@ _eval$1.exports.math = math;
 var intervalArithmeticEval = {exports: {}};
 
 var _eval = {exports: {}};
+
+var mathCodegen = {exports: {}};
+
+var ArrayNode = function (node) {
+  var self = this;
+  var arr = [];
+  this.rawify(this.options.rawArrayExpressionElements, function () {
+    arr = node.nodes.map(function (el) {
+      return self.next(el)
+    });
+  });
+  var arrString = '[' + arr.join(',') + ']';
+
+  if (this.options.raw) {
+    return arrString
+  }
+  return this.options.factory + '(' + arrString + ')'
+};
+
+var AssignmentNode = function (node) {
+  return 'scope["' + node.name + '"] = ' + this.next(node.expr)
+};
+
+var ConditionalNode = function (node) {
+  var condition = '!!(' + this.next(node.condition) + ')';
+  var trueExpr = this.next(node.trueExpr);
+  var falseExpr = this.next(node.falseExpr);
+  return '(' + condition + ' ? (' + trueExpr + ') : (' + falseExpr + ') )'
+};
+
+var ConstantNode = function (node) {
+  if (this.options.raw) {
+    return node.value
+  }
+  return this.options.factory + '(' + node.value + ')'
+};
+
+var FunctionNode = {exports: {}};
+
+var SymbolNode$1 = mrParser.nodeTypes.SymbolNode;
+
+var functionProxy = function (node) {
+  return '$$mathCodegen.functionProxy(' + this.next(new SymbolNode$1(node.name)) + ', "' + node.name + '")'
+};
+
+FunctionNode.exports = function (node) {
+  var self = this;
+  // wrap in a helper function to detect the type of symbol it must be a function
+  // NOTE: if successful the wrapper returns the function itself
+  // NOTE: node.name should be a symbol so that it's correctly represented as a string in SymbolNode
+  var method = functionProxy.call(this, node);
+  var args = [];
+  this.rawify(this.options.rawCallExpressionElements, function () {
+    args = node.args.map(function (arg) {
+      return self.next(arg)
+    });
+  });
+  return method + '(' + args.join(', ') + ')'
+};
+
+FunctionNode.exports.functionProxy = functionProxy;
+
+var Operators$1 = {
+  // arithmetic
+  '+': 'add',
+  '-': 'sub',
+  '*': 'mul',
+  '/': 'div',
+  '^': 'pow',
+  '%': 'mod',
+  '!': 'factorial',
+
+  // misc operators
+  '|': 'bitwiseOR',       // bitwise or
+  '^|': 'bitwiseXOR',     // bitwise xor
+  '&': 'bitwiseAND',      // bitwise and
+
+  '||': 'logicalOR',      // logical or
+  'xor': 'logicalXOR',    // logical xor
+  '&&': 'logicalAND',     // logical and
+
+  // comparison
+  '<': 'lessThan',
+  '>': 'greaterThan',
+  '<=': 'lessEqualThan',
+  '>=': 'greaterEqualThan',
+  '===': 'strictlyEqual',
+  '==': 'equal',
+  '!==': 'strictlyNotEqual',
+  '!=': 'notEqual',
+
+  // shift
+  '>>': 'shiftRight',
+  '<<': 'shiftLeft',
+  '>>>': 'unsignedRightShift'
+};
+
+var Operators = Operators$1;
+
+var OperatorNode = function (node) {
+  if (this.options.raw) {
+    return ['(' + this.next(node.args[0]), node.op, this.next(node.args[1]) + ')'].join(' ')
+  }
+
+  var namedOperator = Operators[node.op];
+
+  if (!namedOperator) {
+    throw TypeError('unidentified operator')
+  }
+
+  /* eslint-disable new-cap */
+  return this.FunctionNode({
+    name: namedOperator,
+    args: node.args
+  })
+  /* eslint-enable new-cap */
+};
+
+var SymbolNode = function (node) {
+  var id = node.name;
+  return '$$mathCodegen.getProperty("' + id + '", scope, ns)'
+};
+
+var UnaryOperators$1 = {
+  '+': 'positive',
+  '-': 'negative',
+  '~': 'oneComplement'
+};
+
+var UnaryOperators = UnaryOperators$1;
+
+var UnaryNode = function (node) {
+  if (this.options.raw) {
+    return node.op + this.next(node.argument)
+  }
+
+  if (!(node.op in UnaryOperators)) {
+    throw new SyntaxError(node.op + ' not implemented')
+  }
+
+  var namedOperator = UnaryOperators[node.op];
+  /* eslint-disable new-cap */
+  return this.FunctionNode({
+    name: namedOperator,
+    args: [node.argument]
+  })
+  /* eslint-enable new-cap */
+};
+
+var extend$1 = extend$4;
+
+var types = {
+  ArrayNode: ArrayNode,
+  AssignmentNode: AssignmentNode,
+  ConditionalNode: ConditionalNode,
+  ConstantNode: ConstantNode,
+  FunctionNode: FunctionNode.exports,
+  OperatorNode: OperatorNode,
+  SymbolNode: SymbolNode,
+  UnaryNode: UnaryNode
+};
+
+var Interpreter$1 = function (owner, options) {
+  this.owner = owner;
+  this.options = extend$1({
+    factory: 'ns.factory',
+    raw: false,
+    rawArrayExpressionElements: true,
+    rawCallExpressionElements: false,
+    applyFactoryToScope: false
+  }, options);
+};
+
+extend$1(Interpreter$1.prototype, types);
+
+// main method which decides which expression to call
+Interpreter$1.prototype.next = function (node) {
+  if (!(node.type in this)) {
+    throw new TypeError('the node type ' + node.type + ' is not implemented')
+  }
+  return this[node.type](node)
+};
+
+Interpreter$1.prototype.rawify = function (test, fn) {
+  var oldRaw = this.options.raw;
+  if (test) {
+    this.options.raw = true;
+  }
+  fn();
+  if (test) {
+    this.options.raw = oldRaw;
+  }
+};
+
+var Interpreter_1 = Interpreter$1;
+
+var Parser = mrParser.Parser;
+var Interpreter = Interpreter_1;
+var extend = extend$4;
+
+function CodeGenerator$1 (options, defs) {
+  this.statements = [];
+  this.defs = defs || {};
+  this.interpreter = new Interpreter(this, options);
+}
+
+CodeGenerator$1.prototype.setDefs = function (defs) {
+  this.defs = extend(this.defs, defs);
+  return this
+};
+
+CodeGenerator$1.prototype.compile = function (namespace) {
+  var self = this;
+  if (!namespace || !(typeof namespace === 'object' || typeof namespace === 'function')) {
+    throw TypeError('namespace must be an object')
+  }
+  if (typeof namespace.factory !== 'function') {
+    throw TypeError('namespace.factory must be a function')
+  }
+
+  // definitions available in the function
+  // each property under this.defs is mapped to local variables
+  // e.g
+  //
+  //  function (defs) {
+  //    var ns = defs['ns']
+  //    // code generated for the expression
+  //  }
+  this.defs.ns = namespace;
+  this.defs.$$mathCodegen = {
+    getProperty: function (symbol, scope, ns) {
+      function applyFactoryIfNeeded (value) {
+        if (self.interpreter.options.applyFactoryToScope && typeof value !== 'function') {
+          return ns.factory(value)
+        }
+        return value
+      }
+
+      if (symbol in scope) {
+        return applyFactoryIfNeeded(scope[symbol])
+      }
+      if (symbol in ns) {
+        return applyFactoryIfNeeded(ns[symbol])
+      }
+      throw SyntaxError('symbol "' + symbol + '" is undefined')
+    },
+    functionProxy: function (fn, name) {
+      if (typeof fn !== 'function') {
+        throw SyntaxError('symbol "' + name + '" must be a function')
+      }
+      return fn
+    }
+  };
+  this.defs.$$processScope = this.defs.$$processScope || function () {};
+
+  var defsCode = Object.keys(this.defs).map(function (name) {
+    return 'var ' + name + ' = defs["' + name + '"]'
+  });
+
+  // statement join
+  if (!this.statements.length) {
+    throw Error('there are no statements saved in this generator, make sure you parse an expression before compiling it')
+  }
+
+  // last statement is always a return statement
+  this.statements[this.statements.length - 1] = 'return ' + this.statements[this.statements.length - 1];
+
+  var code = this.statements.join(';');
+  var factoryCode = defsCode.join('\n') + '\n' + [
+    'return {',
+    '  eval: function (scope) {',
+    '    scope = scope || {}',
+    '    $$processScope(scope)',
+    '    ' + code,
+    '  },',
+    "  code: '" + code + "'",
+    '}'
+  ].join('\n');
+
+  /* eslint-disable */
+  var factory = new Function('defs', factoryCode);
+  return factory(this.defs)
+  /* eslint-enable */
+};
+
+CodeGenerator$1.prototype.parse = function (code) {
+  var self = this;
+  var program = new Parser().parse(code);
+  this.statements = program.blocks.map(function (statement) {
+    return self.interpreter.next(statement)
+  });
+  return this
+};
+
+var CodeGenerator_1 = CodeGenerator$1;
+
+/*
+ * math-codegen
+ *
+ * Copyright (c) 2015 Mauricio Poppe
+ * Licensed under the MIT license.
+ */
+
+(function (module) {
+	module.exports = CodeGenerator_1;
+} (mathCodegen));
 
 /**
  * @mixin utils
@@ -34493,7 +36045,7 @@ var policies = function (Interval) {
  * Created by mauricio on 5/12/15.
  */
 
-const CodeGenerator = require$$0$1;
+const CodeGenerator = mathCodegen.exports;
 const Interval = require$$1.default;
 adapter(Interval);
 
@@ -34542,8 +36094,8 @@ const samplers$1 = {
     interval: interval_arithmetic_eval_1$1.default,
     builtIn: built_in_math_eval_1.default
 };
-if (window.math) {
-    samplers$1.builtIn = window.math.compile;
+if ({}.math) {
+    samplers$1.builtIn = {}.math.compile;
 }
 function generateEvaluator(samplerName) {
     function doCompile(expression) {
@@ -34571,7 +36123,7 @@ function generateEvaluator(samplerName) {
         // othewise throw an error
         if (typeof expression === 'string') {
             const compiled = samplers$1[samplerName](expression);
-            if (window.math && samplerName === 'builtIn') {
+            if ({}.math && samplerName === 'builtIn') {
                 // if mathjs is included use its evaluate method instead
                 return { eval: compiled.evaluate || compiled.eval };
             }
