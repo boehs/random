@@ -205,6 +205,7 @@ h1 {
 
 nav {
   border: 2px solid var(--sec);
+  z-index: 2;
   padding: 10px;
   border-radius: 0px 0px 5px 5px;
   border-top: none;
@@ -215,6 +216,7 @@ nav {
 
 footer {
   border: 2px solid var(--sec);
+  z-index: 2;
   padding: 10px;
   border-radius: 5px 5px 0px 0px;
   border-bottom: none;
@@ -284,6 +286,7 @@ a {
   position: relative;
   > img {
     cursor: none;
+    position: relative;
     border-radius: 0;
 
     &:hover {
