@@ -7,7 +7,7 @@ export default function Graph(props: {
 }) {
     const id = (Math.random() + 1).toString(36).substring(7);
     onMount(async () => {
-        await import('https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js')
+        await import('mathjax')
         await (await import('function-plot')).default({
             target: '#' + id,
             data: props.data
