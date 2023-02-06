@@ -1,4 +1,4 @@
-import { For, lazy, onMount } from "solid-js";
+import { For, onMount } from "solid-js";
 import { FunctionPlotDatum } from "function-plot/dist/types";
 import { Link } from "solid-start";
 
