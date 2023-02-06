@@ -3,9 +3,10 @@ import { defineConfig } from "vite";
 import cloudflare from "solid-start-cloudflare-pages";
 
 export default defineConfig({
-  plugins: [solid({adapter: cloudflare({})})],
+  plugins: [solid({ adapter: cloudflare({}) })],
   ssr: {
-  noExternal: ['function-plot','mathjax',/d3-.*/]
+    noExternal: ['function-plot', /d3-.*/],
+    external: ['mathjax', 'd3-ease', 'mr-parser', 'math-codegen']
   },
   define: {
     global: "window"
