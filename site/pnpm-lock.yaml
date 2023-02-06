@@ -5,11 +5,12 @@ specifiers:
   '@solid-primitives/set': ^0.3.2
   '@solidjs/meta': ^0.28.2
   '@solidjs/router': ^0.7.0
+  '@types/katex': ^0.16.0
   '@types/node': ^18.11.18
   esbuild: ^0.14.54
   events: ^3.3.0
   function-plot: ^1.23.2
-  mathjax: ^3.2.2
+  katex: ^0.16.4
   postcss: ^8.4.21
   sass: ^1.58.0
   solid-js: ^1.6.9
@@ -25,9 +26,10 @@ dependencies:
   '@solid-primitives/set': 0.3.2_solid-js@1.6.10
   '@solidjs/meta': 0.28.2_solid-js@1.6.10
   '@solidjs/router': 0.7.0_solid-js@1.6.10
+  '@types/katex': 0.16.0
   events: 3.3.0
   function-plot: 1.23.2
-  mathjax: 3.2.2
+  katex: 0.16.4
   sass: 1.58.0
   solid-js: 1.6.10
   solid-start: 0.2.16_xkldvgorozr2rd64n7towncbfe
@@ -1577,6 +1579,10 @@ packages:
   /@types/estree/1.0.0:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
 
+  /@types/katex/0.16.0:
+    resolution: {integrity: sha512-hz+S3nV6Mym5xPbT9fnO8dDhBFQguMYpY0Ipxv06JMi1ORgnEM4M1ymWDUhUNer3ElLmT583opRo4RzxKmh9jw==}
+    dev: false
+
   /@types/node/18.11.18:
     resolution: {integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==}
 
@@ -1808,6 +1814,11 @@ packages:
 
   /commander/2.20.3:
     resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
+
+  /commander/8.3.0:
+    resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
+    engines: {node: '>= 12'}
+    dev: false
 
   /commondir/1.0.1:
     resolution: {integrity: sha512-W9pAhw0ja1Edb5GVdIF1mjZw/ASI0AlShXM83UUGe2DVr5TdAPEA1OA8m/g8zWp9x6On7gqufY+FatDbC3MDQg==}
@@ -2769,6 +2780,13 @@ packages:
     optionalDependencies:
       graceful-fs: 4.2.10
 
+  /katex/0.16.4:
+    resolution: {integrity: sha512-WudRKUj8yyBeVDI4aYMNxhx5Vhh2PjpzQw1GRu/LVGqL4m1AxwD1GcUp0IMbdJaf5zsjtj8ghP0DOQRYhroNkw==}
+    hasBin: true
+    dependencies:
+      commander: 8.3.0
+    dev: false
+
   /kleur/4.1.5:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
     engines: {node: '>=6'}
@@ -2813,10 +2831,6 @@ packages:
     dependencies:
       extend: 3.0.2
       mr-parser: 0.2.1
-    dev: false
-
-  /mathjax/3.2.2:
-    resolution: {integrity: sha512-Bt+SSVU8eBG27zChVewOicYs7Xsdt40qm4+UpHyX7k0/O9NliPc+x77k1/FEsPsjKPZGJvtRZM1vO+geW0OhGw==}
     dev: false
 
   /merge-anything/5.1.4:
