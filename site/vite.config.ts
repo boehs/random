@@ -6,9 +6,9 @@ export default defineConfig({
   plugins: [solid({ adapter: cloudflare({}) })],
   ssr: {
     noExternal: ['function-plot', /d3-.*/],
-    external: ['d3-ease', 'mr-parser', 'math-codegen']
   },
   define: {
-    global: "window"
+    global: "window",
+    window: {}
   },
 });
