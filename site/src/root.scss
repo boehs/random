@@ -353,3 +353,7 @@ a {
 main {
   animation: var(--ani);
 }
+
+.notrans * {
+  transition: none;
+}
