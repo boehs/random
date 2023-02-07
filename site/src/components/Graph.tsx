@@ -48,12 +48,16 @@ export default function Graph(props: {
                                     default: return `y = ${data.fn}`
                                 }
                             }
-                            console.log(frm())
+                            
+                            let str = frm()
+                            try {
+                                str = katex.renderToString(frm())
+                            } catch (e) {}
                             const colour = `hsl(${(360 / (fdat().length)) * i()}, 48%, 48%)`
                             return <p style={{
                                 "border-left": `2px solid ${colour}`,
                                 "padding-left": "10px",
-                            }} innerHTML={katex.renderToString(frm())} />
+                            }} innerHTML={str} />
                         }}
                     </For>
                 </div>
