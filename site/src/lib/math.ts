@@ -5,6 +5,7 @@ const symTrans = {
     "/": "div",
     ">=": "ge",
     "<=": "le",
+    "PI": "pi",
     "acos": "arccos",
     "asin": "arcsin",
     "atan": "arctan"
