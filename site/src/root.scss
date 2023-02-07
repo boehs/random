@@ -1,3 +1,5 @@
+@use 'loader.scss';
+
 :root {
   --pri: #40b58a;
   --sec: #529a82;
@@ -247,7 +249,8 @@ article {
 }
 
 // just for fun
-img:not(.no) {
+img:not(.no),
+video:not(.no) {
   min-width: 50%;
   max-width: 100%;
   border-radius: 5px;
@@ -302,7 +305,8 @@ a {
   display: inline-block;
   background-color: white;
   position: relative;
-  > img {
+  > img,
+  > video {
     cursor: none;
     position: relative;
     border-radius: 0;

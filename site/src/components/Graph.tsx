@@ -2,11 +2,12 @@ import { For, onMount } from "solid-js";
 import { FunctionPlotDatum } from "function-plot/dist/types";
 import katex from 'katex'
 import { Link } from "solid-start";
+import { parse } from 'mathjs'
 
 export default function Graph(props: {
     data: FunctionPlotDatum[]
 }) {
-    props.data = props.data.map((d,i) => {
+    const fdat = () => props.data.map((d, i) => {
         d.color = `hsl(${(360 / (props.data.length)) * i}, 48%, 48%)`
         d.attr = {
             ...d.attr,
@@ -14,37 +15,57 @@ export default function Graph(props: {
         }
         return d
     })
-    const id = (Math.random() + 1).toString(36).substring(7);
+    let elm: HTMLDivElement
     onMount(async () => {
         await (await import('function-plot')).default({
-            target: '#' + id,
-            data: props.data,
-            width: (700/8)*6,
+            target: elm,
+            data: fdat(),
+            width: 500,
         })
+        elm.classList.remove('loader')
     })
 
     return <>
         <Link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" />
         <div class="notrans" style={{
             display: 'grid',
-            "grid-template-columns": "2fr 6fr",
+            "grid-template-columns": "200px 500px",
             width: "100%",
+            "margin-block": "1em",
+            height: "354px"
         }}>
             <div style={{
                 "background-color": "whitesmoke",
-                "border-radius": "5px"
+                "border-radius": "5px",
+                overflow: 'auto'
             }}>
-                <For each={props.data}>
+                <For each={fdat()}>
                     {(data, i) => {
-                        const colour = `hsl(${(360 / (props.data.length)) * i()}, 48%, 48%)`
+
+                        const frm = () => {
+                            switch (data.fnType) {
+                                case 'polar': return `r = ${parse(data.r).toTex()}`
+                                case 'parametric': return `\\begin{cases} x= ${parse(data.x).toTex()} \\\\ y=${parse(data.y).toTex()} \\end{cases}`
+                                default: return `y = ${parse(data.fn).toTex()}`
+                            }
+                        }
+                        const colour = `hsl(${(360 / (fdat().length)) * i()}, 48%, 48%)`
                         return <p style={{
                             "border-left": `2px solid ${colour}`,
                             "padding-left": "10px",
-                        }} innerHTML={katex.renderToString(data.fn || data.r)}></p>
+                        }} innerHTML={katex.renderToString(frm())} />
                     }}
                 </For>
             </div>
-            <div id={id} />
+            <div style={{
+                "width": "100%",
+                "height": "100%",
+                display: "flex",
+                "justify-content": "center",
+                "align-items": "center"
+            }}>
+                <div ref={elm} class="loader"/>
+            </div>
         </div>
     </>
 }

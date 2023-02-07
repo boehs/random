@@ -19,6 +19,9 @@ export default {
         children: {
             plot: {
                 description: 'Graphing & Other math capabilities'
+            },
+            basics: {
+                description: 'The basics'
             }
         }
     }
