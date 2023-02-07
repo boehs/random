@@ -32,14 +32,14 @@ export default function Graph(props: {
             display: 'grid',
             "grid-template-columns": "200px 500px",
             width: "100%",
-            "margin-block": "1em",
             height: "354px"
         }}>
             <ErrorBoundary>
                 <div style={{
                     "background-color": "whitesmoke",
                     "border-radius": "5px",
-                    overflow: 'auto'
+                    overflow: 'auto',
+                    "margin-block": "1em"
                 }} class="notrans">
                     <For each={fdat()}>
                         {(data, i) => {
