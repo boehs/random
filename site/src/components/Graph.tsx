@@ -2,7 +2,6 @@ import { For, onMount } from "solid-js";
 import { FunctionPlotDatum } from "function-plot/dist/types";
 import katex from 'katex'
 import { Link } from "solid-start";
-import { parse } from 'mathjs'
 
 export default function Graph(props: {
     data: FunctionPlotDatum[]
@@ -41,12 +40,11 @@ export default function Graph(props: {
             }}>
                 <For each={fdat()}>
                     {(data, i) => {
-
                         const frm = () => {
                             switch (data.fnType) {
-                                case 'polar': return `r = ${parse(data.r).toTex()}`
-                                case 'parametric': return `\\begin{cases} x= ${parse(data.x).toTex()} \\\\ y=${parse(data.y).toTex()} \\end{cases}`
-                                default: return `y = ${parse(data.fn).toTex()}`
+                                case 'polar': return `r = ${data.r}`
+                                case 'parametric': return `\\begin{cases} x= ${data.x} \\\\ y=${data.y} \\end{cases}`
+                                default: return `y = ${data.fn}`
                             }
                         }
                         const colour = `hsl(${(360 / (fdat().length)) * i()}, 48%, 48%)`

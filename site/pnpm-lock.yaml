@@ -13,6 +13,7 @@ specifiers:
   katex: ^0.16.4
   mathjs: ^11.5.1
   postcss: ^8.4.21
+  rollup-plugin-visualizer: ^5.9.0
   sass: ^1.58.0
   solid-js: ^1.6.9
   solid-start: 0.2.16
@@ -33,6 +34,7 @@ dependencies:
   function-plot: 1.23.2
   katex: 0.16.4
   mathjs: 11.5.1
+  rollup-plugin-visualizer: 5.9.0
   sass: 1.58.0
   solid-js: 1.6.10
   solid-start: 0.2.16_xkldvgorozr2rd64n7towncbfe
@@ -3438,6 +3440,22 @@ packages:
     resolution: {integrity: sha512-4kCrKPTJ6sK4/gLL/U5QzVT8cxJcofO0OU74tnB19F40cmuAKSzH5/siithxlofFEjwvw1YAhPmbvGNA6jEroA==}
     dependencies:
       rollup-plugin-inject: 3.0.2
+    dev: false
+
+  /rollup-plugin-visualizer/5.9.0:
+    resolution: {integrity: sha512-bbDOv47+Bw4C/cgs0czZqfm8L82xOZssk4ayZjG40y9zbXclNk7YikrZTDao6p7+HDiGxrN0b65SgZiVm9k1Cg==}
+    engines: {node: '>=14'}
+    hasBin: true
+    peerDependencies:
+      rollup: 2.x || 3.x
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+    dependencies:
+      open: 8.4.0
+      picomatch: 2.3.1
+      source-map: 0.7.4
+      yargs: 17.6.2
     dev: false
 
   /rollup-plugin-visualizer/5.9.0_rollup@3.12.0:
