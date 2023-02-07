@@ -40,7 +40,7 @@ export default function Graph(props: {
                     "background-color": "whitesmoke",
                     "border-radius": "5px",
                     overflow: 'auto'
-                }}>
+                }} class="notrans">
                     <For each={fdat()}>
                         {(data, i) => {
                             const frm = () => {
