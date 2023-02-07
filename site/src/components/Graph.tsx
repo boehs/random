@@ -2,6 +2,7 @@ import { For, onMount } from "solid-js";
 import { FunctionPlotDatum } from "function-plot/dist/types";
 import katex from 'katex'
 import ErrorBoundary, { Link } from "solid-start";
+import translate from "~/lib/math";
 
 export default function Graph(props: {
     data: FunctionPlotDatum[]
@@ -20,6 +21,7 @@ export default function Graph(props: {
             target: elm,
             data: fdat(),
             width: 500,
+            grid: true
         })
         elm.classList.remove('loader')
     })
@@ -48,10 +50,12 @@ export default function Graph(props: {
                                     default: return `y = ${data.fn}`
                                 }
                             }
-                            
-                            let str = frm()
+                            let str = translate(frm())
+
                             try {
-                                str = katex.renderToString(frm())
+                                // so it is still good if things go bad
+                                const tm = katex.renderToString(str)
+                                str = tm
                             } catch (e) {}
                             const colour = `hsl(${(360 / (fdat().length)) * i()}, 48%, 48%)`
                             return <p style={{

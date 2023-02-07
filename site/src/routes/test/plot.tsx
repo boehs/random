@@ -17,7 +17,10 @@ export default function Plot() {
       r: '2 * sin(4 theta)',
       fnType: 'polar',
       graphType: 'polyline'
-    }]} />
+    },
+    {fn: 'abs(x)'},
+    {fn: 'sqrt(x)'}]} />
+    <h1>Baby's first parametric equation</h1>
     <Graph data={[{
       x: 't - 1.6cos(24t)',
       y: 't - 1.6sin(25t)',
