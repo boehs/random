@@ -1,7 +1,7 @@
 import { For, onMount } from "solid-js";
 import { FunctionPlotDatum } from "function-plot/dist/types";
 import katex from 'katex'
-import { Link } from "solid-start";
+import ErrorBoundary, { Link } from "solid-start";
 
 export default function Graph(props: {
     data: FunctionPlotDatum[]
@@ -24,7 +24,7 @@ export default function Graph(props: {
         elm.classList.remove('loader')
     })
 
-    return <>
+    return <ErrorBoundary>
         <Link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" />
         <div class="notrans" style={{
             display: 'grid',
@@ -33,37 +33,42 @@ export default function Graph(props: {
             "margin-block": "1em",
             height: "354px"
         }}>
-            <div style={{
-                "background-color": "whitesmoke",
-                "border-radius": "5px",
-                overflow: 'auto'
-            }}>
-                <For each={fdat()}>
-                    {(data, i) => {
-                        const frm = () => {
-                            switch (data.fnType) {
-                                case 'polar': return `r = ${data.r}`
-                                case 'parametric': return `\\begin{cases} x= ${data.x} \\\\ y=${data.y} \\end{cases}`
-                                default: return `y = ${data.fn}`
+            <ErrorBoundary>
+                <div style={{
+                    "background-color": "whitesmoke",
+                    "border-radius": "5px",
+                    overflow: 'auto'
+                }}>
+                    <For each={fdat()}>
+                        {(data, i) => {
+                            const frm = () => {
+                                switch (data.fnType) {
+                                    case 'polar': return `r = ${data.r}`
+                                    case 'parametric': return `\\begin{cases} x= ${data.x} \\\\ y=${data.y} \\end{cases}`
+                                    default: return `y = ${data.fn}`
+                                }
                             }
-                        }
-                        const colour = `hsl(${(360 / (fdat().length)) * i()}, 48%, 48%)`
-                        return <p style={{
-                            "border-left": `2px solid ${colour}`,
-                            "padding-left": "10px",
-                        }} innerHTML={katex.renderToString(frm())} />
-                    }}
-                </For>
-            </div>
-            <div style={{
-                "width": "100%",
-                "height": "100%",
-                display: "flex",
-                "justify-content": "center",
-                "align-items": "center"
-            }}>
-                <div ref={elm} class="loader"/>
-            </div>
+                            console.log(frm())
+                            const colour = `hsl(${(360 / (fdat().length)) * i()}, 48%, 48%)`
+                            return <p style={{
+                                "border-left": `2px solid ${colour}`,
+                                "padding-left": "10px",
+                            }} innerHTML={katex.renderToString(frm())} />
+                        }}
+                    </For>
+                </div>
+            </ErrorBoundary>
+            <ErrorBoundary>
+                <div style={{
+                    "width": "100%",
+                    "height": "100%",
+                    display: "flex",
+                    "justify-content": "center",
+                    "align-items": "center"
+                }}>
+                    <div ref={elm} class="loader" />
+                </div>
+            </ErrorBoundary>
         </div>
-    </>
+    </ErrorBoundary>
 }
