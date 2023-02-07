@@ -17,7 +17,8 @@ export function EmOMG(props: {
 }) {
     let emoji = props.src
     || props.giphy ? `https://media.giphy.com/media/${props.giphy}/giphy.gif` : false
-    || props.kym ? `https://i.kym-cdn.com/photos/images/newsfeed/${props.kym}.jpg` : undefined
+    || props.kym ? `https://i.kym-cdn.com/photos/images/newsfeed/${props.kym}.jpg` : false
+    || undefined
     
-    return <i class="emoji"><img src={emoji} alt={props.alt}/></i>
+    return <i class="emoji"><img src={emoji} alt={props.alt} loading="lazy"/></i>
 }
