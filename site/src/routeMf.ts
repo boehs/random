@@ -13,6 +13,14 @@ export default {
                 description: 'You ever get tired of entering your password?'
             }
         }
+    },
+    test: {
+        description: 'just testing the infra here',
+        children: {
+            plot: {
+                description: 'Graphing & Other math capabilities'
+            }
+        }
     }
 } as {
     [key: string]: Route

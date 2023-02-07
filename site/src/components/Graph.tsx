@@ -25,7 +25,7 @@ export default function Graph(props: {
 
     return <>
         <Link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" />
-        <div style={{
+        <div class="notrans" style={{
             display: 'grid',
             "grid-template-columns": "2fr 6fr",
             width: "100%",
@@ -44,7 +44,7 @@ export default function Graph(props: {
                     }}
                 </For>
             </div>
-            <div class="notrans" id={id} />
+            <div id={id} />
         </div>
     </>
 }

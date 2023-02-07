@@ -1,10 +1,9 @@
 import { createSignal, For, Show } from "solid-js";
 import { A, Title, useLocation } from "solid-start";
 import { HttpStatusCode } from "solid-start/server";
-import EmOMG from "~/components/EmOMG";
-import { Plural } from "~/components/Helpers";
+import { Plural, EmOMG } from "~/components/Helpers";
 import { useSecondsHere } from "~/root";
-import routeMf, { Route } from "~/routeMf";
+import routeMf from "~/routeMf";
 
 export default function NotFound() {
   const breathsPerMinute = 16
@@ -46,7 +45,7 @@ export default function NotFound() {
           "font-size": "50px"
         }}>
           <For each={Array(age())}>
-            {duck => <span style={{"animation": "zoom 0.3s ease-in-out;"}}><EmOMG giphy="rtRflhLVzbNWU" alt="duck" /></span>}
+            {duck => <span style={{ "animation": "zoom 0.3s ease-in-out;" }}><EmOMG giphy="rtRflhLVzbNWU" alt="duck" /></span>}
           </For>
         </div>
       </Show>
@@ -61,8 +60,8 @@ export function FourOFolder(props: {
   console.log(useLocation().pathname)
   const routeChildren = useLocation().pathname.split('/').slice(1).reduce((o, i) => {
     return o != false ? ((i == '' ? o : o[i]) || false) : false
-  },routeMf)
-  
+  }, routeMf)
+
   return <>
     <Show when={!props.hideMsg && routeChildren}>
       <h2>Today's your lucky day</h2>
@@ -75,7 +74,7 @@ export function FourOFolder(props: {
             <span>{loc}:</span> <i>{bd.description}</i>
           </A>
         </li>}
-        </For>
+      </For>
     </ul>
   </>
 }

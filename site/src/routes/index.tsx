@@ -1,6 +1,6 @@
 import { For } from "solid-js";
 import { Title } from "solid-start";
-import EmOMG from "~/components/EmOMG";
+import { EmOMG } from "~/components/Helpers";
 import { FourOFolder } from "./[...404]";
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
       <Title>Ahoy!</Title>
       <h1>Hello Hello, Welcome Home!!!</h1>
       <p>
-        I use this as a playground to test <EmOMG kym="000/234/765/b7e"/> various ideas.
+        I use this as a playground to test <EmOMG kym="000/234/765/b7e" alt="I have no idea what I am doing"/> various ideas.
       </p>
       <img src="https://media.tenor.com/hAlpXvNEQM0AAAAd/bull-dog-dog.gif"/>
       <blockquote>Wherever you go, go with all your heart</blockquote>

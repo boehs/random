@@ -1,6 +1,6 @@
 import { createResource, For } from "solid-js"
 import { useRouteData } from "solid-start"
-import EmOMG from "~/components/EmOMG"
+import { EmOMG } from "~/components/Helpers"
 
 export function routeData() {
     const sl = 'https://raw.githubusercontent.com/danielmiessler/SecLists/master/'

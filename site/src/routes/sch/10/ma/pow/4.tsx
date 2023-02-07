@@ -46,7 +46,7 @@ export default function Counter(props: {
           <input
             type="number"
             value={i()}
-            onInput={(e) => setI(e.target.value ? Number(e.target.value) : 0)}
+            onInput={(e) => setI((e.target as HTMLInputElement).value ? Number((e.target as HTMLInputElement).value) : 0)}
             min={0}
           />
           <div class="chip" style={{"--offset": filled() / 20 + 'px'}}>
@@ -56,7 +56,7 @@ export default function Counter(props: {
         <div>
           <input type="range" min={0} max={50}
             value={i()}
-            onInput={(e) => setI(e.target.value ? Number(e.target.value) : 0)}
+            onInput={(e) => setI((e.target as HTMLInputElement).value ? Number((e.target as HTMLInputElement).value) : 0)}
           />
         </div>
       </Show>
