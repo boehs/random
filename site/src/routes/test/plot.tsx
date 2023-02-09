@@ -1,4 +1,4 @@
-import Graph from '~/components/Graph'
+import Graph from '~/components/data/Graph'
 
 export default function Plot() {
   return <main>

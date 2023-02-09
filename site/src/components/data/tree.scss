@@ -1,0 +1,20 @@
+.tree {
+  border: 2px solid var(--pri);
+}
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 3px;
+  r: 10;
+}
+
+.node text {
+  font: 16px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 2px;
+}
