@@ -35,6 +35,7 @@ export default function Root() {
         <Link rel="preconnect" href="https://fonts.googleapis.com" />
         <Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <Link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet" />
+        <script async defer data-website-id="9eece432-ef42-4772-9402-fb1d8160d446" src="https://espy.boehs.org/colophon.js"/>
       </Head>
       <Body>
         <div>
