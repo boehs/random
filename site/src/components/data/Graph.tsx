@@ -2,7 +2,7 @@ import { For, onMount } from "solid-js";
 import { FunctionPlotDatum } from "function-plot/dist/types";
 import katex from 'katex'
 import ErrorBoundary, { Link } from "solid-start";
-import translate from "~/lib/math";
+import translate, { r } from "~/lib/math";
 import { auto } from "~/lib/colours";
 
 export default function Graph(props: {
@@ -49,7 +49,7 @@ export default function Graph(props: {
                             const frm = () => {
                                 switch (data.fnType) {
                                     case 'polar': return `r = ${data.r}`
-                                    case 'parametric': return `\\begin{cases} x= ${data.x} \\\\ y=${data.y} \\end{cases}`
+                                    case 'parametric': return r`\begin{cases} x= ${data.x} \\ y=${data.y} \end{cases}`
                                     default: return `y = ${data.fn}`
                                 }
                             }
