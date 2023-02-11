@@ -67,7 +67,7 @@ body {
     position: relative;
   }
 
-  article > * {
+  article > *:not(.nomarg) {
     margin-block: 1em;
   }
 }
@@ -269,9 +269,15 @@ video:not(.no) {
   }
 }
 
-blockquote {
+blockquote, dl {
   padding: 10px 10px 10px 20px;
   margin: 1em 0;
+  border-left: var(--pri) 2px solid;
+}
+
+dd {
+  padding: 5px 0 5px 20px;
+  margin: 0;
   border-left: var(--pri) 2px solid;
 }
 

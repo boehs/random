@@ -3,12 +3,15 @@ import { FunctionPlotDatum } from "function-plot/dist/types";
 import katex from 'katex'
 import ErrorBoundary, { Link } from "solid-start";
 import translate from "~/lib/math";
+import { auto } from "~/lib/colours";
 
 export default function Graph(props: {
     data: FunctionPlotDatum[]
 }) {
+    const colour = auto(props.data.length)
+    
     const fdat = () => props.data.map((d, i) => {
-        d.color = `hsl(${(360 / (props.data.length)) * i}, 48%, 48%)`
+        d.color = colour(i)
         d.attr = {
             ...d.attr,
             "stroke-width": 2
@@ -57,7 +60,7 @@ export default function Graph(props: {
                                 const tm = katex.renderToString(str)
                                 str = tm
                             } catch (e) {}
-                            const colour = `hsl(${(360 / (fdat().length)) * i()}, 48%, 48%)`
+                            const colour = auto(fdat().length)(i())
                             return <p style={{
                                 "border-left": `2px solid ${colour}`,
                                 "padding-left": "10px",
@@ -74,6 +77,7 @@ export default function Graph(props: {
                     "justify-content": "center",
                     "align-items": "center"
                 }}>
+                    {/*@ts-expect-error*/}
                     <div ref={elm} class="loader" />
                 </div>
             </ErrorBoundary>

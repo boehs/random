@@ -1,12 +1,11 @@
-.tree {
-  border: 2px solid var(--pri);
+:root {
+  --gray: lightgray;
 }
 
 .node circle {
-  fill: #fff;
-  stroke: steelblue;
-  stroke-width: 3px;
-  r: 10;
+  fill: var(--clr);
+  stroke: var(--clr);
+  stroke-width: 2px;
 }
 
 .node text {
@@ -15,6 +14,6 @@
 
 .link {
   fill: none;
-  stroke: #ccc;
+  stroke: var(--gray);
   stroke-width: 2px;
 }

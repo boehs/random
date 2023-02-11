@@ -24,3 +24,5 @@ const translate = (inp: string) => {
 }
 
 export default translate
+
+export const r = String.raw

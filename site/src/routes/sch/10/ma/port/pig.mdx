@@ -1,0 +1,130 @@
+import E from "~/components/data/Equation";
+import Tree from "~/components/data/Tree";
+import { EmOMG } from "~/components/Helpers";
+import { r } from "~/lib/math";
+export const dat = {
+  name: "Hat",
+  children: [
+    {
+      name: "10$",
+      children: [{ name: "5$" }, { name: "1$" }],
+    },
+    {
+      name: "5$",
+      children: [{ name: "10$" }, { name: "1$" }],
+    },
+    {
+      name: "1$",
+      children: [{ name: "10$" }, { name: "5$" }],
+    },
+  ],
+};
+
+# Conditional Probability With Tree Diagrams
+
+<Tree
+  data={{
+    name: "😈 v 👨",
+    children: [
+      {
+        name: "Heads",
+        children: [{ name: "Heads" }, { name: "Tails" }],
+      },
+      { name: "Tails" },
+    ],
+  }}
+/>
+
+The devil proposes a deal to Alex. Alex will flip a coin twice.
+
+<dl>
+  <dt>Heads, Heads</dt>
+  <dd>Win 1000000$ <EmOMG giphy="fikiml0dKfRQ2ZS08E" /></dd>
+  <dt>Heads, Tails</dt>
+  <dd>Tie</dd>
+  <dt>Tails</dt>
+  <dd>Lose soul <EmOMG giphy="xGE1Nr8GE5Xag" /></dd>
+</dl>
+
+Alex is excited about the opportunity, but wants to know the chance of each outcome.
+
+We can reason about this using tree diagrams. Each row represents a particular round. For instance, if Alex flips his coin twice, there will be two rows.
+
+Each node represents an outcome. In this case, the nodes in the first row represent the two states of a coin &mdash; heads and tails. If it's heads, then we move onto the second row where there are another two outcomes: `Head, Head`; and `Head, Tails`.
+
+<Tree
+  data={{
+    name: "😈 v 👨",
+    children: [
+      {
+        name: "Heads",
+        lc: "red",
+        children: [{ name: "Heads - 25%", lc: "red" }, { name: "25%" }],
+      },
+      { name: "50%" },
+    ],
+  }}
+/>
+
+To get the chance for a particular outcome, you want to multiply the chances for all the rounds that lead to it together.
+
+For instance, if Alex wants the chance of getting two heads, he would do <E>50\\%\\times50\\%</E>, because both tosses have a 50% chance of heads. He knows the chance of loosing his soul is <E>50\\%</E>, because the chance in the first round is <E>50\\%</E>, and if that happens no more rounds are conducted.
+
+# Expected Value
+
+Let's say you are offered a hat with a 10\$ bill, a 5\$ bill, and a 1\$ bill. You will draw from it twice, and you want to know the average amount of money you will get per draw, because Sir Hat <EmOMG giphy="xULW8gIuijhLhyODMk"/> charges 10\$ a game.
+
+<Tree data={dat} />
+You decide to represent the situation with a tree once again. The expected value
+is the average value for the game
+
+We can get the average in two ways. We can multiply each percentage by its possibility and add them together:
+
+<E type="block">
+  {r`(15\times\frac{1}{6})+(11\times\frac{1}{6})+...`}
+</E>
+
+Or, if each percentage is the same, we can factor it out.
+
+<E type="block">
+  {r`\frac{15+11+...}{6}`}
+</E>
+
+Both of these give us our <E>\text\{EV\}</E>. Each outcome is equal to <E>{r`\frac{1}{3}\frac{1}{2}`}</E>, because there is a <E>{r`\frac{1}{3}`}</E> chance of each value in the first draw, and in the second draw, there is a <E>{r`\frac{1}{2}`}</E> chance because there is one less bill.
+
+This means we can do the factoring method.
+
+<E type="block">
+  {(() => {
+    const top = dat.children
+      .flatMap((child) => {
+        return child.children
+          .map(
+            (c) => `(${child.name.replace("$", "")}+${c.name.replace("$", "")})`
+          )
+          .join("+");
+      })
+      .join("+");
+    return r`\frac{${top}}{${6}}=\frac{64}{6}=10.66\$`
+  })()}
+</E>
+
+# Fair and balanced <EmOMG giphy="xT8qBit7YomT80d0M8"/>
+
+A fair game is one where both parties have equal expected values. For instance, say Evan and Penny are spinning a wheel. The wheel has a 75% bias to Penny, but Evan only needs to pay her 1\$ when she wins. If the wheel lands on Evan's section, she needs to pay him 4\$. Who comes out ahead?
+
+In this scenario, we will calculate the EV from either participant's perspective.
+
+<E type="block">
+  {r`EV_e=-1\frac{3}{4}+4\frac{1}{4}=0.25`}
+</E>
+
+This means the game is unfair — Evan has an EV of 0.25, and that makes penny a little sad. She wants to make it fair, so the equation needs to be *balanced*. That is — when added together, the equation should equal zero.
+
+There are <E>\infty</E> solutions, but here is one:
+
+<E type="block">
+  {r`EV_e=-1\frac{3}{4}+\color{green}3\color{black}\frac{1}{4}=0`}
+</E>
+
+The probabilities could also be changed.
