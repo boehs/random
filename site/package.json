@@ -26,8 +26,6 @@
     "events": "^3.3.0",
     "function-plot": "^1.23.2",
     "katex": "^0.16.4",
-    "rehype-katex": "^6.0.2",
-    "remark-math": "^5.1.1",
     "sass": "^1.58.0",
     "solid-js": "^1.6.9",
     "solid-mdx": "^0.0.6",
