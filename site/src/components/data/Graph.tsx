@@ -1,9 +1,9 @@
 import { For, onMount } from "solid-js";
 import { FunctionPlotDatum } from "function-plot/dist/types";
-import katex from 'katex'
 import ErrorBoundary, { Link } from "solid-start";
 import translate, { r } from "~/lib/math";
 import { auto } from "~/lib/colours";
+import E from "./Equation";
 
 export default function Graph(props: {
     data: FunctionPlotDatum[]
@@ -54,17 +54,13 @@ export default function Graph(props: {
                                 }
                             }
                             let str = translate(frm())
-
-                            try {
-                                // so it is still good if things go bad
-                                const tm = katex.renderToString(str)
-                                str = tm
-                            } catch (e) {}
                             const colour = auto(fdat().length)(i())
                             return <p style={{
                                 "border-left": `2px solid ${colour}`,
                                 "padding-left": "10px",
-                            }} innerHTML={str} />
+                            }}>
+                                <E type="inline">{str}</E>
+                            </p>
                         }}
                     </For>
                 </div>

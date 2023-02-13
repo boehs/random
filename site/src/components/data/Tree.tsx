@@ -87,16 +87,8 @@ export default function Tree(props: {
         elm.classList.remove('loader')
 })
 
-// Todo: Unhardcode
-    return <div style={{
-        "width": "350px",
-        "height": "350px",
-        display: "flex",
-        "justify-content": "center",
-        "align-items": "center",
-        "float": "right",
-        "margin-left": "10px",
-    }} class="nomarg">
+// Todo: Unhardcode nomarg
+    return <div class="nomarg floater">
         <div ref={elm} class="loader" />
     </div>
 }

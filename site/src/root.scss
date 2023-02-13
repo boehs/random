@@ -281,12 +281,6 @@ dd {
   border-left: var(--pri) 2px solid;
 }
 
-@media screen and (max-width: 900px) {
-  body > div {
-    margin: 0px 30px;
-  }
-}
-
 .card {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -366,4 +360,28 @@ main {
 
 .notrans * {
   transition: none;
+}
+
+.floater {
+    width: 350px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .floater {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  body > div {
+    margin: 0px 30px;
+  }
 }
