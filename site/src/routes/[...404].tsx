@@ -57,7 +57,6 @@ export default function NotFound() {
 export function FourOFolder(props: {
   hideMsg?: boolean
 }) {
-  console.log(useLocation().pathname)
   const routeChildren = useLocation().pathname.split('/').slice(1).reduce((o, i) => {
     return o != false ? ((i == '' ? o : o[i]) || false) : false
   }, routeMf)

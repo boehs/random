@@ -17,9 +17,6 @@ export default defineConfig({
       extensions: [".mdx", ".md"]
     })
   ],
-  ssr: {
-    noExternal: ['function-plot', /d3-.*/],
-  },
   define: {
     global: {},
   },

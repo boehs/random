@@ -385,3 +385,17 @@ main {
     margin: 0px 30px;
   }
 }
+
+@media print {
+  body > div {
+    margin: 0px 30px;
+  }
+  
+  nav, footer {
+    display: none;
+  }
+  
+  h1 {
+    clear: both;
+  }
+}
