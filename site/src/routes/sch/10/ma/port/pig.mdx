@@ -1,6 +1,7 @@
 import E from "~/components/data/Equation";
 import Tree from "~/components/data/Tree";
 import { EmOMG } from "~/components/Helpers";
+import PTitle from "~/components/Title";
 import { r } from "~/lib/math";
 export const dat = {
   name: "Hat",
@@ -20,7 +21,10 @@ export const dat = {
   ],
 };
 
-# Conditional Probability With Tree Diagrams
+<PTitle>{'Probably-ity'}</PTitle>
+
+## Conditional Probability With Tree Diagrams
+
 
 <Tree
   data={{
@@ -70,7 +74,7 @@ To get the chance for a particular outcome, you want to multiply the chances for
 
 For instance, if Alex wants the chance of getting two heads, he would do <E>50\\%\\times50\\%</E>, because both tosses have a 50% chance of heads. He knows the chance of loosing his soul is <E>50\\%</E>, because the chance in the first round is <E>50\\%</E>, and if that happens no more rounds are conducted.
 
-# Expected Value
+## Expected Value
 
 Let's say you are offered a hat with a 10\$ bill, a 5\$ bill, and a 1\$ bill. You will draw from it twice, and you want to know the average amount of money you will get per draw, because Sir Hat <EmOMG giphy="xULW8gIuijhLhyODMk"/> charges 10\$ a game.
 
@@ -109,7 +113,7 @@ This means we can do the factoring method.
   })()}
 </E>
 
-# Fair and balanced <EmOMG giphy="xT8qBit7YomT80d0M8"/>
+## Fair and balanced <EmOMG giphy="xT8qBit7YomT80d0M8"/>
 
 A fair game is one where both parties have equal expected values. For instance, say Evan and Penny are spinning a wheel. The wheel has a 75% bias to Penny, but Evan only needs to pay her 1\$ when she wins. If the wheel lands on Evan's section, she needs to pay him 4\$. Who comes out ahead?
 

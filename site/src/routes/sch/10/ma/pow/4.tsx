@@ -1,5 +1,6 @@
 import { Accessor, createMemo, createSignal, Setter, Show } from "solid-js";
 import Grid from "~/components/Grid";
+import PTitle from "~/components/Title";
 
 export default function Counter(props: {
   i: [Accessor<number>, Setter<Number>]
@@ -36,7 +37,7 @@ export default function Counter(props: {
   return (
     <>
       <Show when={!props.i}>
-        <h1>Pow #4</h1>
+        <PTitle>Pow #4</PTitle>
       </Show>
       <Grid grid={grid()} />
       <Show when={!props.i}>

@@ -1,5 +1,5 @@
 import { createResource, For } from "solid-js"
-import { useRouteData } from "solid-start"
+import { Title, useRouteData } from "solid-start"
 import { EmOMG } from "~/components/Helpers"
 
 export function routeData() {
@@ -18,6 +18,7 @@ export default function PasswordSuggestions() {
     const { passwords, usernames } = useRouteData<typeof routeData>()
 
     return <>
+        <Title>Password Suggestions</Title>
         <h1>Welcome to ACME!</h1>
         <main>
             <div class="toolbar" style={{ height: "500px", "gap": "30px", "align-items": "center" }}>

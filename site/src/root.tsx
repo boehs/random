@@ -29,7 +29,7 @@ export default function Root() {
   return (
     <Html lang="en">
       <Head>
-        <Title>SolidStart - Bare</Title>
+        <Title>Erand - Untitled</Title>
         <Meta charset="utf-8" />
         <Meta name="viewport" content="width=device-width, initial-scale=1" />
         <Link rel="preconnect" href="https://fonts.googleapis.com" />

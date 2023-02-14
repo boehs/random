@@ -1,8 +1,10 @@
 import Graph from '~/components/data/Graph'
+import PTitle from '~/components/Title'
 
 export default function Plot() {
   return <main>
-    <h1>Basics</h1>
+    <PTitle>Plotting Tests</PTitle>
+    <h2>Basics</h2>
     <Graph data={[{
       fn: 'x^2'
     }, {
@@ -18,7 +20,7 @@ export default function Plot() {
       fnType: 'polar',
       graphType: 'polyline'
     }]} />
-    <h1>Baby's first parametric equation</h1>
+    <h2>Baby's first parametric equation</h2>
     <Graph data={[{
       x: 't - 1.6cos(24t)',
       y: 't - 1.6sin(25t)',
@@ -26,7 +28,7 @@ export default function Plot() {
       fnType: 'parametric',
       graphType: 'polyline'
     }]} />
-    <h1>Sym test</h1>
+    <h2>Sym test</h2>
     <Graph data={[
       { fn: 'abs(x)' },
       { fn: 'sqrt(x)' },
