@@ -1,11 +1,12 @@
-const str = `A simulator flip a coin 10 times and record how many heads there are.
-The user will then specify how many times to repeat the 10 flips and
+const str = `Flip a coin x times and record how many heads there are.
+The user will then specify how many times to repeat the x flips and
 each time the program will add the number of heads to a graph.
-On the x-axis, would be the numbers 0 through 10
-and represent the number of times heads comes up in the 10 flips and the y-axis would be the frequency.`
+On the x-axis, would be the numbers 0 through x,
+which represent the number of times heads comes up in the x flips. The y-axis would be the frequency.`
 import { createEffect, createSignal, For } from "solid-js"
 import { createStore } from "solid-js/store"
 import { leading, throttle } from '@solid-primitives/scheduled'
+import PTitle from "~/components/Title"
 
 
 export default function Coin() {
@@ -35,6 +36,7 @@ export default function Coin() {
     })
 
     return <main>
+        <PTitle>Probability of n heads across many coin flips</PTitle>
         <div class="card" style={{
             "flex-direction": "row"
         }}>
