@@ -1,10 +1,12 @@
-import { createSignal, createEffect, Show, onMount } from "solid-js"
-import { createRouteData, useRouteData } from 'solid-start'
+import { createSignal, createEffect, Show } from "solid-js"
+import { useRouteData } from 'solid-start'
+import { createServerData$ } from "solid-start/server";
+
 
 const imgs = ['http://www.georgecapaccio.com/wp-content/uploads/2015/10/Al-E-laughing-wo-border-croppped-e1494117018850.jpg','https://allthatsinteresting.com/thumb/1200.633.https://allthatsinteresting.com/wordpress/wp-content/uploads/2017/07/einstein-three.jpg','https://generations.krea.ai/images/34b356a7-c539-4f75-8ce0-6912ea0d7d4d.png']
 
 export function routeData() {
-    return { pi: createRouteData(async () => await fetch('http://newton.ex.ac.uk/research/qsystems/collabs/pi/pi4.txt').then(res => res.text().then(text => text.replaceAll(/\n| /g, '').split('')))) }
+    return { pi: createServerData$(async () => await fetch('http://newton.ex.ac.uk/research/qsystems/collabs/pi/pi4.txt').then(res => res.text().then(text => text.replaceAll(/\n| /g, '').split('')))) }
 }
 
 export default function Pi() {
@@ -18,10 +20,10 @@ export default function Pi() {
     
     let [img,setImg] = createSignal("")
 
-    let pressure = 0;
-    let hideITmo = 0;
+    let pressure: ReturnType<typeof setTimeout>;
+    let hideITmo: ReturnType<typeof setTimeout>;
 
-    const setFocus = el => setTimeout(() => el.focus())
+    const setFocus = (el:HTMLElement) => setTimeout(() => el.focus())
 
     createEffect(() => {
         clearTimeout(pressure)
