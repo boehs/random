@@ -1,15 +1,15 @@
-import { createResource, For } from "solid-js"
-import { Title, useRouteData } from "solid-start"
+import { For } from "solid-js"
+import { createRouteData, Title, useRouteData } from "solid-start"
 import { EmOMG } from "~/components/Helpers"
 
 export function routeData() {
     const sl = 'https://raw.githubusercontent.com/danielmiessler/SecLists/master/'
 
     const passwordEndpoint = sl + 'Passwords/Common-Credentials/10-million-password-list-top-10000.txt'
-    const [passwords] = createResource(async () => (await (await fetch(passwordEndpoint)).text()).split('\n'))
+    const passwords = createRouteData(async () => (await (await fetch(passwordEndpoint)).text()).split('\n'))
 
     const usernameEndpoint = sl + 'Usernames/Honeypot-Captures/multiplesources-users-fabian-fingerle.de.txt'
-    const [usernames] = createResource(async () => (await (await fetch(usernameEndpoint)).text()).split('\n').slice(250))
+    const usernames = createRouteData(async () => (await (await fetch(usernameEndpoint)).text()).split('\n').slice(250))
 
     return { passwords, usernames }
 }
