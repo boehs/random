@@ -57,8 +57,8 @@ export default function Pi() {
             <img style={{
                 "position": "absolute",
                 "top": "0",
-                "left": "0",
-                "transform": "rotate(-45deg)",
+                "left": "-10px",
+                "transform": "rotate(-15deg)",
                 width: "100px",
                 "max-height": "200px"
             }} src={img()} />
@@ -100,6 +100,13 @@ export default function Pi() {
                 }} />
             </Show>
             <Show when={mode() == 'end'}>
+            <img style={{
+                "position": "absolute",
+                "right": "-10px",
+                "bottom": "0",
+                "transform": "rotate(-15deg)",
+                width: "100px",
+            }} src="https://i.insider.com/5eea66313f73702a602dec75?width=600&format=jpeg&auto=webp" />
                 It was a good run, but you didn't hit {n()}
                 <button use:setFocus onClick={() => {
                     setI(3)
