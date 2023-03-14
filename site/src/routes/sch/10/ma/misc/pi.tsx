@@ -54,20 +54,21 @@ export default function Pi() {
         <div class="card" style={{
             "border-color": mode() == 'playback' || (mode() == 'input' && step() == i()) ? `var(--sec)` : mode() == 'input' ? '#d9b365' : 'red',
             "align-items": "center",
-            "justify-content": "center"
+            "justify-content": "center",
+            overflow: "hidden"
         }}>
             <img style={{
-                "position": "absolute",
-                "top": "0",
-                "left": "-10px",
-                "transform": "rotate(-15deg)",
+                position: "absolute",
+                top: 0,
+                left: "-10px",
+                transform: "rotate(-15deg)",
                 width: "100px",
                 "max-height": "200px"
             }} src={img()} />
             <Show when={mode() == 'playback'}>
                 <h1 style={{
                     "font-size": "10em",
-                    "margin": "0"
+                    margin: "0"
                 }}>{n()}</h1>
             </Show>
             <Show when={mode() == 'input'}>
@@ -75,8 +76,8 @@ export default function Pi() {
                     "font-size": "10em",
                     "font-weight": "bold",
                     border: "none",
-                    "display": "inline",
-                    "width": "1ch",
+                    display: "inline",
+                    width: "1ch",
                     "text-align": "center",
                     "background": "transparent"
                 }} use:setFocus onInput={(e) => {
@@ -103,10 +104,10 @@ export default function Pi() {
             </Show>
             <Show when={mode() == 'end'}>
             <img style={{
-                "position": "absolute",
-                "right": "-10px",
-                "bottom": "0",
-                "transform": "rotate(-15deg)",
+                position: "absolute",
+                right: "-10px",
+                bottom: 0,
+                transform: "rotate(-15deg)",
                 width: "100px",
             }} src="https://i.insider.com/5eea66313f73702a602dec75?width=600&format=jpeg&auto=webp" />
                 It was a good run, but you didn't hit {n()}
