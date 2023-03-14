@@ -1,5 +1,5 @@
-import { Navigate } from "solid-start"
+import { redirect } from "solid-start"
 
- 
-
-export default () => <Navigate href={'/sch/10/ma/misc/pi'}/>
+export function GET() {
+    throw redirect('/sch/10/ma/misc/pi')
+}
