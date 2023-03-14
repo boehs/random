@@ -3,7 +3,7 @@ import { Link } from "solid-start"
 import { createServerData$ } from "solid-start/server"
 import { Dynamic } from "solid-js/web"
 
-export default function E({ children, type = 'inline' }: { children: string, type: 'inline' | 'block' }) {
+export default function E({ children, type = 'inline' }: { children: string, type?: 'inline' | 'block' }) {
     const tmp = createServerData$((children) => {
         return katex.renderToString(children)
     }, { key: () => children })
