@@ -12,12 +12,14 @@ export function routeData() {
 export default function Pi() {
     const { pi } = useRouteData<typeof routeData>()
     pi()
+    /// The largest number to reach in a round.
     const [i, setI] = createSignal(3)
-
     const [mode, setMode] = createSignal<'playback' | 'input' | 'end'>('playback')
+    /// The current number on display, either in playback or recently inputted.
     const [n, setN] = createSignal("3")
+    /// The progress towards reaching {@link i}
     let [step, setStep] = createSignal(0)
-
+    
     let [img, setImg] = createSignal("")
 
     let pressure: ReturnType<typeof setTimeout>
@@ -69,7 +71,7 @@ export default function Pi() {
                 }}>{n()}</h1>
             </Show>
             <Show when={mode() == 'input'}>
-                <input type="text" style={{
+                <input type="text" inputmode="numeric" pattern="[0-9.]*" style={{
                     "font-size": "10em",
                     "font-weight": "bold",
                     border: "none",
