@@ -1,12 +1,14 @@
-import { For, onMount } from "solid-js";
-import { FunctionPlotDatum } from "function-plot/dist/types";
+import { For, onMount, Show } from "solid-js";
+import { FunctionPlotDatum, FunctionPlotOptions } from "function-plot/dist/types";
 import ErrorBoundary, { Link } from "solid-start";
 import translate, { r } from "~/lib/math";
 import { auto } from "~/lib/colours";
 import E from "./Equation";
 
 export default function Graph(props: {
-    data: FunctionPlotDatum[]
+    data: FunctionPlotDatum[],
+    opts?: Omit<FunctionPlotOptions, 'target' | 'data'>,
+    eq?: string[]
 }) {
     const colour = auto(props.data.length)
     
@@ -14,7 +16,7 @@ export default function Graph(props: {
         d.color = colour(i)
         d.attr = {
             ...d.attr,
-            "stroke-width": 2
+            "stroke-width": 3
         }
         return d
     })
@@ -24,7 +26,8 @@ export default function Graph(props: {
             target: elm,
             data: fdat(),
             width: 500,
-            grid: true
+            grid: true,
+            ...props.opts
         })
         elm.classList.remove('loader')
     })
@@ -44,6 +47,17 @@ export default function Graph(props: {
                     overflow: 'auto',
                     "margin-block": "1em"
                 }} class="notrans">
+                    <Show when={props.eq == undefined} fallback={<For each={props.eq}>
+                      {(eq,i) => {
+                        const colour = auto(fdat().length)(i())
+                        return <p style={{
+                            "border-left": `3px solid ${colour}`,
+                            "padding-left": "10px",
+                        }}>
+                            <E type="inline">{eq}</E>
+                        </p>
+                      }}
+                    </For>}>
                     <For each={fdat()}>
                         {(data, i) => {
                             const frm = () => {
@@ -56,13 +70,14 @@ export default function Graph(props: {
                             let str = translate(frm())
                             const colour = auto(fdat().length)(i())
                             return <p style={{
-                                "border-left": `2px solid ${colour}`,
+                                "border-left": `3px solid ${colour}`,
                                 "padding-left": "10px",
                             }}>
                                 <E type="inline">{str}</E>
                             </p>
                         }}
                     </For>
+                    </Show>
                 </div>
             </ErrorBoundary>
             <ErrorBoundary>

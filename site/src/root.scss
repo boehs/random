@@ -1,4 +1,4 @@
-@use 'loader.scss';
+@use "loader.scss";
 
 :root {
   --pri: #40b58a;
@@ -73,7 +73,7 @@ body {
 }
 
 input,
-textarea, 
+textarea,
 button,
 .button,
 .chip {
@@ -152,6 +152,53 @@ button:disabled,
   cursor: not-allowed;
 }
 
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+
+  tr {
+    th,
+    td {
+      border-right: 2px solid lightgray;
+      border-bottom: 2px solid lightgray;
+      padding: 5px;
+    }
+
+    th {
+      background: whitesmoke;
+      text-align: left;
+      border-top: solid 2px lightgray;
+      text-align: center;
+    }
+
+    &:first-child {
+      th:first-child {
+        border-top-left-radius: 5px;
+      }
+
+      th:last-child {
+        border-top-right-radius: 5px;
+      }
+    }
+
+    &:last-child {
+      td:first-child {
+        border-bottom-left-radius: 5px;
+      }
+
+      td:last-child {
+        border-bottom-right-radius: 5px;
+      }
+    }
+  }
+
+  tr th:first-child,
+  td:first-child {
+    border-left: 2px solid lightgray;
+  }
+}
+
 .button {
   > a {
     text-decoration: none;
@@ -210,7 +257,7 @@ h1 {
   list-style: none;
   margin: 0;
   padding: 0;
-  
+
   > li > a {
     animation: var(--ani);
     display: inline-block;
@@ -272,7 +319,8 @@ video:not(.no) {
   }
 }
 
-blockquote, dl {
+blockquote,
+dl {
   padding: 10px 10px 10px 20px;
   margin: 1em 0;
   border-left: var(--pri) 2px solid;
@@ -339,20 +387,20 @@ a {
 
 .list {
   padding-inline-start: 0;
-  
+
   > li {
     display: flex;
     padding: 20px;
     gap: 20px;
     border-radius: 5px;
-    
+
     &:nth-child(odd) {
       background-color: whitesmoke;
     }
-    
+
     &::before {
       display: inline;
-      content: '📁';
+      content: "📁";
     }
   }
 }
@@ -366,13 +414,13 @@ main {
 }
 
 .floater {
-    width: 350px;
-    height: 350px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    float: right;
-    margin-left: 10px;
+  width: 350px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: right;
+  margin-left: 10px;
 }
 
 @media screen and (max-width: 600px) {
@@ -393,11 +441,12 @@ main {
   body > div.contain {
     margin: 0px 30px;
   }
-  
-  nav, footer {
+
+  nav,
+  footer {
     display: none;
   }
-  
+
   h1 {
     clear: both;
   }

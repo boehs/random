@@ -1,6 +1,6 @@
 // @refresh reload
-import { createContextProvider } from "@solid-primitives/context";
-import { createSignal, For, Suspense } from "solid-js";
+import { createContextProvider } from "@solid-primitives/context"
+import { createSignal, For, Suspense } from "solid-js"
 import {
   A,
   Body,
@@ -14,8 +14,10 @@ import {
   Scripts,
   Title,
   useLocation,
-} from "solid-start";
-import "./root.scss";
+} from "solid-start"
+import "./root.scss"
+import { MDXProvider } from "solid-mdx"
+import { components } from "./components/MdxComp"
 
 export const [SecondsHereProvider, useSecondsHere] = createContextProvider(() => {
   const breathsPerMinute = 16
@@ -35,35 +37,37 @@ export default function Root() {
         <Link rel="preconnect" href="https://fonts.googleapis.com" />
         <Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <Link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet" />
-        <script async defer data-website-id="9eece432-ef42-4772-9402-fb1d8160d446" src="https://espy.boehs.org/colophon.js"/>
+        <script async defer data-website-id="9eece432-ef42-4772-9402-fb1d8160d446" src="https://espy.boehs.org/colophon.js" />
       </Head>
       <Body>
         <div class="contain">
-          <Suspense>
-            <ErrorBoundary>
-              <nav>
-                <ul id="breadcrumb">
-                  <li><A href="/">home</A></li>
-                  <For each={(() => useLocation().pathname.split('/').slice(1))()}>
-                    {(path, i) => <li><A href={useLocation().pathname.split('/').slice(0, i() + 2).join('/')}>{path}</A></li>}
-                  </For>
-                </ul>
-              </nav>
-              <article>
-                <SecondsHereProvider>
-                  <Routes>
-                    <FileRoutes />
-                  </Routes>
-                </SecondsHereProvider>
-              </article>
-              <footer>
-                <p>By <a href="https://boehs.org">Evan Boehs</a>, <i>All Rights Reserved</i></p>
-              </footer>
-            </ErrorBoundary>
-          </Suspense>
+          <ErrorBoundary>
+            <nav>
+              <ul id="breadcrumb">
+                <li><A href="/">home</A></li>
+                <For each={(() => useLocation().pathname.split('/').slice(1))()}>
+                  {(path, i) => <li><A href={useLocation().pathname.split('/').slice(0, i() + 2).join('/')}>{path}</A></li>}
+                </For>
+              </ul>
+            </nav>
+            <article>
+              <SecondsHereProvider>
+                <Suspense>
+                  <MDXProvider components={components}>
+                    <Routes>
+                      <FileRoutes />
+                    </Routes>
+                  </MDXProvider>
+                </Suspense>
+              </SecondsHereProvider>
+            </article>
+            <footer>
+              <p>By <a href="https://boehs.org">Evan Boehs</a>, <i>All Rights Reserved</i></p>
+            </footer>
+          </ErrorBoundary>
           <Scripts />
         </div>
       </Body>
     </Html>
-  );
+  )
 }

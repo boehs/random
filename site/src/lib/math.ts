@@ -19,6 +19,7 @@ const translate = (inp: string) => {
     inp = inp.replaceAll(new RegExp(`(${fns.join('|')})\\(([^)]*)\\)`,'g'), `\\$1{$2}`)
     Object.entries(symTrans).forEach(([b,a]) => inp = inp.replaceAll(b,'\\' + a))
     Object.entries(fnSym).forEach(([b,a]) => inp = inp.replaceAll(new RegExp(b + `\\(([^)]*)\\)`, 'g'),`${a}$1${a}`))
+    console.log(inp)
     return inp
 }
 

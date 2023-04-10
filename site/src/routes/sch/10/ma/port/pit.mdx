@@ -1,0 +1,119 @@
+import PTitle from "~/components/Title";
+import Graph from "~/components/data/Graph";
+import E from "~/components/data/Equation";
+import { For } from "solid-js";
+import { createStore } from "solid-js/store";
+export const normalShape = (mean, stdev) => ({
+  fn: `(1/(${stdev}*sqrt(2*PI))) E^(-0.5((x-${mean})/${stdev})^2)`,
+  graphType: "polyline",
+});
+export const [data, setData] = createStore([
+  0.5, 5, 6, 10, 5, 1, 0.5,
+]);
+export const dataMean = () =>
+  data.reduce((p, c) => p + c, 0) / data.length;
+export const dataSum = () =>
+  data.reduce((a, b) => a + Math.pow(Math.abs(b - dataMean()), 2), 0);
+
+# Pit
+
+<input type="text" value={data.join(',')} onChange={(e) => setData(e.currentTarget.value.replaceAll(' ',',').split(',').map(Number))}/>
+
+## What is a normal curve
+
+A normal curve is a symmetrical shape that represents data that clusters around a mean. It often occurs naturally when recording data. For instance, when measuring income, weight, or [multiple coin flips](/sch/10/ma/misc/coin).
+
+The coin flip example demonstrates a common way normal curves are discovered: By plotting the number of occurrences (y), of a certain value (x), the shape may appear.
+
+<Graph
+  data={[
+    normalShape(0, 0.4),
+    normalShape(0, 1),
+    normalShape(0, 2.5),
+    normalShape(-2, 1),
+  ]}
+  opts={{ yAxis: { domain: [0, 1] }, xAxis: { domain: [-5, 5] } }}
+  eq={[
+    [0, 0.4],
+    [0, 1],
+    [0, 2.5],
+    [-2, 1],
+  ].map((t) => `\\mu=${t[0]},\\newline \\sigma=${t[1]}`)}
+/>
+The area of the shape represents 100% of the data.
+
+## What is standard deviation
+
+It is helpful to standardize this shape to aid in categorizing data points. A standard deviation, or <E>\sigma</E>, is an "imaginary" unit that assigns a interval to data moving away from the mean. It is useful because after the value is determined and x is set to it, percentages can be assigned that are consistent across data sets.
+
+For instance, ~<E>{`68\\%`}</E> of data falls between <E>{`-1\\sigma<x<1\\sigma`}</E>, and ~<E>{`95\\%`}</E> of data falls between <E>{`-2\\sigma<x<2\\sigma`}</E>, no matter what the original data set was.
+
+Basically, it makes sense of arbitrary numbers.
+
+![](https://d3tl80hy6t5toy.cloudfront.net/wp-content/uploads/sites/4/2012/08/12100547/Bell-Curve-Standard-Deviation.jpg)
+
+### Calculating standard deviation
+
+Given a table of data, lets say <code>{data.join(",")}</code> first calculate the mean:
+
+<E type="block">{`\\frac{${data.join("+")}}{${
+  data.length
+}}=${dataMean()}`}</E>
+
+Then for each datapoint, subtract the mean, then square it (as a way to get the absolute value)
+
+<table>
+  <tbody>
+    <tr>
+      <th>
+        <E>{"x_i"}</E>
+      </th>
+      <th>
+        <E>{"(x_i-\\bar{x})"}</E>
+      </th>
+      <th>
+        <E>{"(x_i-\\bar{x})^2"}</E>
+      </th>
+    </tr>
+    <For each={data}>
+      {(data) => (
+        <tr>
+          <td>{data}</td>
+          <td>{data - dataMean()}</td>
+          <td>{Math.pow(Math.abs(data - dataMean()), 2)}</td>
+        </tr>
+      )}
+    </For>
+    <tr>
+      <td colspan="2" />
+      <td>
+        <b>Sum: </b>
+        {dataSum()}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+Varience is calculated by dividing this sum (the squared differences) by the number of data points.
+
+<E type="block">
+  {`\\frac{${dataSum()}}{${data.length}}=${
+    dataSum() / data.length
+  }`}
+</E>
+
+Standard deviation is the square root of the varience
+
+<E type="block">
+  {`\\sqrt{\\frac{${dataSum()}}{${data.length}}}=${Math.sqrt(
+    dataSum() / data.length
+  )}`}
+</E>
+
+> My food canners add between `975-1025mg` of beef! I want to throw out anything more than `20mg` away from `1000`! What percent of data will I be trashing?
+
+> Well steve, I have no clue! Those numbers make no sense to me! Let's calculate standard distributions!
+
+> Ah! According to my math, a standard distribution for your factory is `10mg`, so `20mg` would be <E>2\sigma</E>! I know that means `95.44%`, so you would be trashing `4.56%` of your food!
+
+## Determining data rarity
