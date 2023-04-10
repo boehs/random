@@ -15,9 +15,9 @@ export const dataMean = () =>
 export const dataSum = () =>
   data.reduce((a, b) => a + Math.pow(Math.abs(b - dataMean()), 2), 0);
 export const dataStdev = () =>
-  Math.sqrt(dataSum() / data.length)
+  Math.sqrt(dataSum() / data.length).toFixed(2)
 export const zScore = (point) =>
-  (point-dataMean())/dataStdev()
+  ((point-dataMean())/dataStdev())
 // https://stackoverflow.com/questions/16194730/seeking-a-statistical-javascript-function-to-return-p-value-from-a-z-score
 // Taylor expansion of the integral of the normal standard distribution http://math2.org/math/stat/distributions/z-dist.htm
 export function GetZPercent(z) {
@@ -34,7 +34,7 @@ export function GetZPercent(z) {
   }
   sum += 0.5;
 
-  return sum;
+  return sum.toFixed(4);
 }
 
 # Pit
@@ -132,7 +132,7 @@ Varience is calculated by dividing this sum (the squared differences) by the num
 
 Standard deviation is the square root of the varience
 
-<Suspense>
+<Suspense fallback="Loading...">
   <E type="block">
     {`\\sqrt{\\frac{${dataSum()}}{${data.length}}}=${dataStdev()}`}
   </E>
@@ -158,7 +158,9 @@ Graphing calculators have a `stat` function
 
 ### Is it rare or ordinary?
 
+<Suspense fallback="Loading...">
 Data is considered "rare" if it falls outside of 2 standard deviations. Zero standard deviations would be the mean, or, given the above data, <code>{dataMean()}</code>. Therefore, numbers within <code>{(dataMean()-(dataStdev()*2)).toFixed(2)}—{(dataMean()+(dataStdev()*2)).toFixed(2)}</code> would be ordinary, and numbers outside (like <code>{(dataMean()+(dataStdev()*3)).toFixed(2)}</code>) are rare.
+</Suspense>
 
 ## Z-score
 
@@ -170,11 +172,13 @@ The z-score formula tells us the standard deviation of a given point in our data
 
 Where x is the value, <E>\mu</E> is the mean, and <E>\sigma</E> is, of course, our standard deviation
 
-For instance, for our data, the z score of the second point, {data[1]}, is
+For instance: for our data the z-score of the second point, {data[1]}, is
 
-<E type="block">
-{`\\frac{${data[1]}-${dataMean()}}{${dataStdev()}}=${zScore(data[1])}`}
-</E>
+<Suspense fallback="Loading...">
+  <E type="block">
+  {`\\frac{${data[1]}-${dataMean()}}{${dataStdev()}}=${zScore(data[1])}`}
+  </E>
+</Suspense>
 
 What can we do with knowledge of what the z-score of a number is? We can use a table to calculate percentage statistics! This particular table shows what percent of data is below a given standard distribution.
 
@@ -186,6 +190,7 @@ Because the shape represents 100%, that means that `(1-Z)*100` is the percent of
 
 To find what percent of numbers fall between two points, say {Math.round(dataMean()-(dataStdev()*0.6))} and {Math.round(dataMean()+(dataStdev()*1.6))}, first calculate the z-score of both numbers:
 
+<Suspense fallback="Loading...">
 <E type="block">
 {`\\frac{${Math.round(dataMean()-(dataStdev()*0.6))}-${dataMean()}}{${dataStdev()}}=${zScore(Math.round(dataMean()-(dataStdev()*0.6)))}`}
 </E>
@@ -208,8 +213,9 @@ Then subtract the larger number by the smaller one.
 Get the percent from the table....
 
 <E type="block">
-{(GetZPercent(zScore(Math.round(dataMean()+(dataStdev()*1.6)))-Math.abs(zScore(Math.round(dataMean()-(dataStdev()*0.6))))) * 100).toFixed(2) + '\\%'}
+{(GetZPercent(zScore(Math.round(dataMean()+(dataStdev()*1.6)))-Math.abs(zScore(Math.round(dataMean()-(dataStdev()*0.6))))) * 100) + '\\%'}
 </E>
+</Suspense>
 
 And that's our answer!
 
@@ -218,3 +224,5 @@ It's easy to understand why this works through a picture:
 ![](/sch/stat/intersection.png)
 
 The larger number is a larger range of data, and then we take a subset off (numbers smaller than the smaller z-score)
+
+<input type="text" value={data.join(',')} onChange={(e) => setData(e.currentTarget.value.replaceAll(' ',',').split(',').map(Number))}/>
