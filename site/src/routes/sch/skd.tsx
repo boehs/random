@@ -1,7 +1,6 @@
 import { For, Show, batch, createEffect, createSignal, onMount } from "solid-js"
 import { createStore } from "solid-js/store"
 import PTitle from "~/components/Title"
-import { createEvents } from 'ics';
 import { EmOMG } from "~/components/Helpers";
 import { isServer } from "solid-js/web";
 
@@ -153,9 +152,9 @@ export default function Skd() {
     let [res,setRes] = createSignal("")
 
     onMount(() => {
-        createEffect(() => {
+        createEffect(async () => {
             if (err()) return
-            const { error, value } = createEvents(rest().flat(3))
+            const { error, value } = (await import("ics")).createEvents(rest().flat(3))
             setRes(value || error!.message)
         })
     })
