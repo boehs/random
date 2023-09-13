@@ -1,8 +1,9 @@
-import { For, Show, batch, createEffect, createSignal } from "solid-js"
+import { For, Show, batch, createEffect, createSignal, onMount } from "solid-js"
 import { createStore } from "solid-js/store"
 import PTitle from "~/components/Title"
 import { createEvents } from 'ics';
 import { EmOMG } from "~/components/Helpers";
+import { isServer } from "solid-js/web";
 
 const sOg = `Z1
 7:30-8:14
@@ -113,8 +114,7 @@ export default function Skd() {
         })
     })
 
-    let res = () => {
-        if (err()) return
+    let rest = () => {
         let end = s().split('\n\n').map((day, dayN) => {
             return day
                 .split(/([A-Z][1-5]?\n.*)/)
@@ -147,16 +147,24 @@ export default function Skd() {
                     }]
                 })
         })
-        // @ts-expect-error
-        const { error, value } = createEvents(end.flat(3))
-        return value || error!.message
+        return end
     }
+
+    let [res,setRes] = createSignal("")
+
+    onMount(() => {
+        createEffect(() => {
+            if (err()) return
+            const { error, value } = createEvents(rest().flat(3))
+            setRes(value || error!.message)
+        })
+    })
 
     return <>
         <PTitle>Schedule <EmOMG giphy="eU6hpfnWjyYQlwtk1m" alt="Right Arrow"/> Calendar (.ics)</PTitle>
         <details>
             <summary>
-                The schedule template. Prefilled for {y}.
+                The schedule, prefilled for {y}.
                 If you are from the future, update it.
             </summary>
             <sup>
