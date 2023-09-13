@@ -1,7 +1,8 @@
-import { For, Show, Signal, batch, createEffect, createResource, createSignal } from "solid-js"
-import { Store, createStore } from "solid-js/store"
+import { For, Show, batch, createEffect, createSignal } from "solid-js"
+import { createStore } from "solid-js/store"
 import PTitle from "~/components/Title"
 import { createEvents } from 'ics';
+import { EmOMG } from "~/components/Helpers";
 
 const sOg = `Z1
 7:30-8:14
@@ -14,9 +15,9 @@ D1
 E1
 11:26-12:21/11:56-12:51
 F1
-12:58-13:53
+12:58-1:53
 G1
-14:00-14:55
+2:00-2:55
 
 Z2
 7:30-8:14
@@ -29,9 +30,9 @@ D2
 E2
 11:26-12:21/11:56-12:51
 F2
-12:58-13:53
+12:58-1:53
 G2
-14:00-14:55
+2:00-2:55
 
 Z3
 7:30-8:14
@@ -44,9 +45,9 @@ C2
 X
 11:05-11:42
 D3
-11:49-12:44/12:19-13:14
+11:49-12:44/12:19-1:14
 E3
-13:21-14:16
+1:21-2:16
 
 Z4
 7:30-8:14
@@ -59,9 +60,9 @@ C3
 G3
 11:26-12:21/11:56-12:51
 E4
-12:58-13:53
+12:58-1:53
 F3
-14:00-14:55
+2:00-2:55
 
 Z5
 7:30-8:14
@@ -74,14 +75,14 @@ C4
 D4
 11:26-12:21/11:56-12:51
 G4
-12:58-13:53
+12:58-1:53
 F4
-14:00-14:55`
+2:00-2:55`
 
 const weeks = ["MO", "TU", "WE", "TH", "FR"]
 const y = "2023-2024"
 
-export default function Sced() {
+export default function Skd() {
     let [s, setS] = createSignal(sOg)
 
     let [blocks, setBlocks] = createStore<{
@@ -94,9 +95,6 @@ export default function Sced() {
     }>({})
 
     let [err, setErr] = createSignal<string>("")
-
-    let [ics] = createResource(async () => (await import("https://cdn.jsdelivr.net/npm/ics")))
-
     createEffect(() => {
         setBlocks({})
         s().trim().split('\n\n').map(day => {
@@ -137,6 +135,9 @@ export default function Sced() {
                     let st = timeRange[0].split(':').map(Number)
                     let et = timeRange[1].split(':').map(Number)
 
+                    /* hardcode */
+                    if (st[0] < 7) st[0] = 12 + st[0]
+
                     return [{
                         start: [...day, ...st],
                         end: [...day, ...et],
@@ -152,21 +153,33 @@ export default function Sced() {
     }
 
     return <>
-        <PTitle>Schedule → Calendar (.ics)</PTitle>
+        <PTitle>Schedule <EmOMG giphy="eU6hpfnWjyYQlwtk1m" alt="Right Arrow"/> Calendar (.ics)</PTitle>
         <details>
             <summary>
                 The schedule template. Prefilled for {y}.
-                If this is incorrect, update it.
+                If you are from the future, update it.
             </summary>
+            <sup>
+                To do this yourself, run OCR column by column. Check for mistakes in OCR.
+                Put two new lines between each column. Change lunch to ST1:ET1/ST2:ET2 as seen above.
+                I recommend doing this in a proper text editor.
+            </sup>
             <textarea value={s()} rows={10} onInput={(e) => setS((e.target as HTMLTextAreaElement).value)}>
             </textarea>
         </details>
-        <sup>For each block, enter the name of the class, and optionally the location.
-        If you have a free block, leave the name field blank. If the class may be a lunch block
-        write a 1 or a 2 corresponding to if it's class 1 or 2, unless it is a free block.</sup>
+        <ul>
+            <sup><li>For each block, enter the name of the class, and optionally the location.</li></sup>
+            <sup><li>If you have a free block, leave the name blank.</li></sup>
+            <sup><li>If it's a lunch block, write a 1 for class 1 or 2 for class 2 (unless you have a free block)</li></sup>
+        </ul>
         <For each={Object.entries(blocks)}>
             {([k, v], i) => <div class="toolbar">
-                <b>{k}</b>
+                <div style={{
+                    display: "flex",
+                    "align-items": "center",
+                    "font-size": "20px",
+                    "font-weight": "bolder"
+                }}>{k}</div>
                 <input type="text" placeholder="Block name" onInput={(e) => {
                     let v2 = (e.target as HTMLInputElement).value
                     batch(() => {
@@ -198,25 +211,31 @@ export default function Sced() {
         <Show when={err()}>
             <p>{err()}</p>
         </Show>
+        <div class="toolbar">
+            <span class="chip"><sup>I am not responsible for harm by bugs <EmOMG tenor="23kEh_81lsQAAAPo/responsibilities-and-me-me-avoiding-responsibility" />.
+                Your schedule is your responsibility. Please report them though! <EmOMG alt="bug report!" tenor="IBtz6rsjLQcAAAPo/bug-reading" /></sup></span>
+            <button onClick={() => {
+                const file = new File([res()], 'calendar.ics', {
+                    type: 'text/calendar',
+                })
+
+                const url = URL.createObjectURL(file)
+
+                const link = document.createElement('a')
+                link.href = url
+                link.download = file.name
+                document.body.appendChild(link)
+                link.click()
+
+                document.body.removeChild(link)
+                window.URL.revokeObjectURL(url)
+            }}><sub style={{
+                "font-size": "8px"
+            }}>please</sub>&nbsp;Give me my calendar!</button>
+        </div>
         <details>
             <summary>File preview</summary>
             <textarea rows={10} value={res()} />
         </details>
-        <button onClick={() => {
-            const file = new File([res()], 'calendar.ics', {
-                type: 'text/calendar',
-            })
-
-            const url = URL.createObjectURL(file)
-
-            const link = document.createElement('a')
-            link.href = url
-            link.download = file.name
-            document.body.appendChild(link)
-            link.click()
-
-            document.body.removeChild(link)
-            window.URL.revokeObjectURL(url)
-        }}>Download your calendar!</button>
     </>
 }
