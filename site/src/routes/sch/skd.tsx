@@ -221,7 +221,7 @@ export default function Skd() {
         <div class="toolbar">
             <span class="chip"><sup>I am not responsible for harm by bugs <EmOMG tenor="23kEh_81lsQAAAPo/responsibilities-and-me-me-avoiding-responsibility" />.
                 Your schedule is your responsibility. Please report them though! <EmOMG alt="bug report!" tenor="IBtz6rsjLQcAAAPo/bug-reading" /></sup></span>
-            <button onClick={() => {
+            <button disabled={err() != ""} onClick={() => {
                 const file = new File([res()], 'calendar.ics', {
                     type: 'text/calendar',
                 })
