@@ -11,7 +11,7 @@
     "esbuild": "^0.14.54",
     "postcss": "^8.4.21",
     "typescript": "^4.9.5",
-    "vite": "^4.1.4"
+    "vite": "^4.1.5"
   },
   "dependencies": {
     "@mdx-js/rollup": "^2.3.0",
